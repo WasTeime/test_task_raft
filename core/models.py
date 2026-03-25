@@ -103,8 +103,18 @@ class LearningPath(BaseModel):
 
 
 # ─── Агент 4: Критик ──────────────────────────────────────────────────────────
+class ScoreItem(BaseModel):
+    score: int = Field(ge=0, le=25)
+    reason: str
+
+class ScoreBreakdown(BaseModel):
+    salary_market_match: ScoreItem
+    skills_consistency: ScoreItem
+    learning_path_quality: ScoreItem
+    portfolio_relevance: ScoreItem
 
 class CriticResult(BaseModel):
+    score_breakdown: ScoreBreakdown
     quality_score: int = Field(ge=0, le=100)
     quality_score_reason: str
     warnings: list[str]

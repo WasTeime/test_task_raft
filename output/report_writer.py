@@ -146,8 +146,23 @@ class ReportWriter:
         lines.append("## Оценка качества\n")
         score = critic.get("quality_score", 0)
         is_ok = critic.get("is_consistent", False)
-        lines.append(f"**Оценка:** {score}/100 ({'OK' if is_ok else 'требует внимания'})")
-        lines.append(f"\n_{critic.get('quality_score_reason', '')}_\n")
+        lines.append(f"**Итоговая оценка:** {score}/100\n")
+
+        breakdown = critic.get("score_breakdown", {})
+        if breakdown:
+            lines.append("| Критерий | Баллы | Комментарий |")
+            lines.append("|----------|-------|-------------|")
+            items = {
+                "salary_market_match": "Зарплаты соответствуют рынку",
+                "skills_consistency": "Согласованность навыков",
+                "learning_path_quality": "Качество плана обучения",
+                "portfolio_relevance": "Релевантность портфолио",
+            }
+            for key, label in items.items():
+                item = breakdown.get(key, {})
+                lines.append(f"| {label} | {item.get('score', 0)}/25 | {item.get('reason', '')} |")
+
+        lines.append(f"_{critic.get('quality_score_reason', '')}_\n")
         for w in critic.get("warnings", []):
             lines.append(f"- {w}")
 

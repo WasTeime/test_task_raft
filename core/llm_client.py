@@ -7,9 +7,9 @@ from groq import Groq
 
 logger = logging.getLogger(__name__)
 
-MODEL = "llama-3.3-70b-versatile"
-MAX_TOKENS = 4096
-MAX_RETRIES = 3
+MODEL = os.getenv("MODEL", "llama-3.3-70b-versatile")
+MAX_TOKENS = int(os.getenv("MAX_TOKENS", "4096"))
+MAX_RETRIES = int(os.getenv("MAX_RETRIES", "3"))
 
 
 class LLMClient:
