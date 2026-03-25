@@ -1,0 +1,7 @@
+services:
+  career-analyser:
+    build: .
+    env_file: .env
+    volumes:
+      - ./results:/app/results
+    command: --output /app/results

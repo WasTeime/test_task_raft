@@ -127,7 +127,7 @@ class ReportWriter:
             lines.append("**Темы:**")
             for topic in phase.get("topics", []):
                 lines.append(f"- {topic}")
-            lines.append("**Маршрут:**")
+            lines.append("\n**Маршрут:**")
             for step in phase.get("path", []):
                 lines.append(f"- {step}")
             lines.append(f"\n**Milestone:** {phase.get('milestone')}\n")
