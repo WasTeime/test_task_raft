@@ -4,6 +4,24 @@ from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
+LEVEL_ORDER = {"critical": 0, "important": 1, "nice-to-have": 2}
+TREND_ORDER = {"growing": 0, "stable": 1, "declining": 2}
+LEVEL_LABELS = {"critical": "необходимый", "important": "есть большой спрос", "nice-to-have": "небольшой спрос"}
+TREND_LABELS = {"growing": "постоянно требуется", "stable": "стабильно", "declining": "снижается"}
+CATEGORY_NAMES = {
+    "languages": "Языки программирования",
+    "frameworks": "Фреймворки и библиотеки",
+    "infrastructure": "Инфраструктура",
+    "soft_skills": "Soft skills",
+}
+GRADE_LABELS = ["junior", "middle", "senior", "lead"]
+SCORE_BREAKDOWN_LABELS = {
+    "salary_market_match": "Зарплаты соответствуют рынку",
+    "skills_consistency": "Согласованность навыков",
+    "learning_path_quality": "Качество плана обучения",
+    "portfolio_relevance": "Релевантность портфолио",
+}
+
 
 class ReportWriter:
     def __init__(self, output_dir: str = "."):
@@ -31,60 +49,61 @@ class ReportWriter:
         return path
 
     def _build_markdown(self, ctx: dict) -> str:
+        sections = [
+            self._section_header(ctx),
+            self._section_skills(ctx.get("skill_map", {})),
+            self._section_salary(ctx.get("salary_table", {})),
+            self._section_learning_path(ctx.get("learning_path", {})),
+            self._section_gap_analysis(ctx.get("learning_path", {})),
+            self._section_portfolio(ctx.get("learning_path", {})),
+            self._section_quality(ctx.get("critic_result", {})),
+        ]
+        return "\n".join(sections)
+
+    def _section_header(self, ctx: dict) -> str:
         role = ctx.get("role", "Неизвестная роль")
         generated_at = ctx.get("generated_at", "")
-        skill_map = ctx.get("skill_map", {})
-        salary_table = ctx.get("salary_table", {})
-        learning_path = ctx.get("learning_path", {})
-        critic = ctx.get("critic_result", {})
-
-        level_order = {"critical": 0, "important": 1, "nice-to-have": 2}
-        trend_order = {"growing": 0, "stable": 1, "declining": 2}
-        level_labels = {"critical": "необходимый", "important": "есть большой спрос", "nice-to-have": "небольшой спрос"}
-        trend_labels = {"growing": "постоянно требуется", "stable": "стабильно", "declining": "снижается"}
-
-        def skill_sort_key(s):
-            return (level_order.get(s.get("level", ""), 9), trend_order.get(s.get("trend", ""), 9))
-
-        lines = [
+        return "\n".join([
             f"# Карьерный отчёт: {role}",
             f"\n_Сгенерировано: {generated_at}_\n",
             "---\n",
-            "## Карта навыков\n",
-        ]
+        ])
 
-        category_names = {
-            "languages": "Языки программирования",
-            "frameworks": "Фреймворки и библиотеки",
-            "infrastructure": "Инфраструктура",
-            "soft_skills": "Soft skills",
-        }
+    def _section_skills(self, skill_map: dict) -> str:
+        def skill_sort_key(s):
+            return (LEVEL_ORDER.get(s.get("level", ""), 9), TREND_ORDER.get(s.get("trend", ""), 9))
 
-        for key, title in category_names.items():
-            skills = skill_map.get(key, [])
-            if skills:
-                skills = sorted(skills, key=skill_sort_key)
-                lines.append(f"### {title}\n")
-                lines.append("| Навык | Востребованность | Тренд |")
-                lines.append("|-------|-----------------|-------|")
-                for s in skills:
-                    lvl = s.get("level", "")
-                    trnd = s.get("trend", "")
-                    lines.append(f"| {s.get('name')} | {level_labels.get(lvl, lvl)} | {trend_labels.get(trnd, trnd)} |")
-                lines.append("")
+        lines = ["## Карта навыков\n"]
+        for key, title in CATEGORY_NAMES.items():
+            skills = sorted(skill_map.get(key, []), key=skill_sort_key)
+            if not skills:
+                continue
+            lines.append(f"### {title}\n")
+            lines.append("| Навык | Востребованность | Тренд | Почему |")
+            lines.append("|-------|-----------------|-------|--------|")
+            for s in skills:
+                lvl = s.get("level", "")
+                trnd = s.get("trend", "")
+                reason = s.get("trend_reason", "")
+                lines.append(f"| {s.get('name')} | {lvl} | {trnd} | {reason} |")
+            lines.append("")
+        return "\n".join(lines)
 
-        lines.append("## Зарплатная таблица\n")
-        trend = salary_table.get("market_trend", "")
-        reason = salary_table.get("market_trend_reason", "")
-        lines.append(f"**Тренд рынка:** {trend_labels.get(trend, trend)}")
-        lines.append(f"\n_{reason}_\n")
-        lines.append("| Грейд | Москва (тыс. ₽) | Регионы (тыс. ₽) | Remote (USD) |")
-        lines.append("|-------|----------------|-----------------|--------------|")
+    def _section_salary(self, salary_table: dict) -> str:
         def fmt(r: dict) -> str:
             mn, med, mx = int(r.get("min", 0)), int(r.get("median", 0)), int(r.get("max", 0))
             return f"{mn}–{mx} (средняя: {med})"
 
-        for grade in ["junior", "middle", "senior", "lead"]:
+        trend = salary_table.get("market_trend", "")
+        reason = salary_table.get("market_trend_reason", "")
+        lines = [
+            "## Зарплатная таблица\n",
+            f"**Тренд рынка:** {TREND_LABELS.get(trend, trend)}",
+            f"\n_{reason}_\n",
+            "| Грейд | Москва (тыс. ₽) | Регионы (тыс. ₽) | Remote (USD) |",
+            "|-------|----------------|-----------------|--------------|",
+        ]
+        for grade in GRADE_LABELS:
             data = salary_table.get(grade, {})
             lines.append(
                 f"| {grade.capitalize()} "
@@ -96,14 +115,18 @@ class ReportWriter:
         employers = salary_table.get("top_employers", [])
         if employers:
             lines.append("\n**Топ работодателей:**\n")
-            sorted_employers = sorted(employers, key=lambda e: (0 if e.get("type") == "российская" else 1))
-            for e in sorted_employers:
+            for e in sorted(employers, key=lambda e: (0 if e.get("type") == "российская" else 1)):
                 lines.append(f"- **{e.get('name')}** ({e.get('type')}) — {e.get('description')}")
             lines.append("")
+        return "\n".join(lines)
 
-        lines.append("## План обучения (90 дней)\n")
+    def _section_learning_path(self, learning_path: dict) -> str:
+        lines = ["## План обучения (90 дней)\n"]
         for i, phase in enumerate(learning_path.get("phases", []), 1):
             lines.append(f"### Фаза {i}: {phase.get('name')} ({phase.get('duration_days')} дней)\n")
+            lines.append("**Темы:**")
+            for topic in phase.get("topics", []):
+                lines.append(f"- {topic}")
             lines.append("**Маршрут:**")
             for step in phase.get("path", []):
                 lines.append(f"- {step}")
@@ -114,56 +137,59 @@ class ReportWriter:
                 for p in projects:
                     lines.append(f"- **{p.get('name')}** — {p.get('description')}")
             lines.append("")
-            lines.append("**Темы:**")
-            for topic in phase.get("topics", []):
-                lines.append(f"- {topic}")
             lines.append("\n**Ресурсы:**")
-            for res in phase.get("resources", []):
+            for res in sorted(phase.get("resources", []), key=lambda r: (0 if r.get("is_free", True) else 1)):
                 url = res.get("url")
                 name = res.get("name")
+                badge = "бесплатно" if res.get("is_free", True) else "платно"
                 link = f"[{name}]({url})" if url else name
-                lines.append(f"- {link} _{res.get('type')}_")
+                lines.append(f"- {link} _{res.get('type')}_ ({badge})")
             lines.append("")
+        return "\n".join(lines)
 
-        lines.append("## Gap-анализ\n")
+    def _section_gap_analysis(self, learning_path: dict) -> str:
         gap = learning_path.get("gap_analysis", {})
-        lines.append("### Quick Wins (2–4 недели)\n")
+        lines = [
+            "## Gap-анализ\n",
+            "### Quick Wins (2–4 недели)\n",
+        ]
         for item in gap.get("quick_wins", []):
             lines.append(f"- {item}")
         lines.append("\n### Long Term (3+ месяца)\n")
         for item in gap.get("long_term", []):
             lines.append(f"- {item}")
         lines.append("")
+        return "\n".join(lines)
 
+    def _section_portfolio(self, learning_path: dict) -> str:
         project = learning_path.get("portfolio_project", {})
-        lines.append("## Портфолио-проект\n")
-        lines.append(f"### {project.get('name', '')}\n")
-        lines.append(project.get("description", ""))
+        lines = [
+            "## Портфолио-проект\n",
+            f"### {project.get('name', '')}\n",
+            f"**Проблема:** {project.get('problem', '')}\n",
+            "**Функционал:**",
+        ]
+        for f in project.get("features", []):
+            lines.append(f"- {f}")
         skills_used = project.get("skills_demonstrated", [])
         if skills_used:
             lines.append(f"\n**Технологии:** {', '.join(skills_used)}\n")
+        return "\n".join(lines)
 
-        lines.append("## Оценка качества\n")
+    def _section_quality(self, critic: dict) -> str:
         score = critic.get("quality_score", 0)
-        is_ok = critic.get("is_consistent", False)
-        lines.append(f"**Итоговая оценка:** {score}/100\n")
-
+        lines = [
+            "## Оценка качества\n",
+            f"**Итоговая оценка:** {score}/100\n",
+        ]
         breakdown = critic.get("score_breakdown", {})
         if breakdown:
             lines.append("| Критерий | Баллы | Комментарий |")
             lines.append("|----------|-------|-------------|")
-            items = {
-                "salary_market_match": "Зарплаты соответствуют рынку",
-                "skills_consistency": "Согласованность навыков",
-                "learning_path_quality": "Качество плана обучения",
-                "portfolio_relevance": "Релевантность портфолио",
-            }
-            for key, label in items.items():
+            for key, label in SCORE_BREAKDOWN_LABELS.items():
                 item = breakdown.get(key, {})
                 lines.append(f"| {label} | {item.get('score', 0)}/25 | {item.get('reason', '')} |")
-
         lines.append(f"_{critic.get('quality_score_reason', '')}_\n")
         for w in critic.get("warnings", []):
             lines.append(f"- {w}")
-
         return "\n".join(lines)

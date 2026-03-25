@@ -21,6 +21,7 @@ class Skill(BaseModel):
     name: str
     level: SkillLevel
     trend: SkillTrend
+    trend_reason: str
 
 
 class SkillMap(BaseModel):
@@ -70,6 +71,7 @@ class Resource(BaseModel):
     name: str
     type: str
     url: Optional[str] = None
+    is_free: bool = True
 
 class PhaseProject(BaseModel):
     name: str
@@ -92,7 +94,8 @@ class GapAnalysis(BaseModel):
 
 class PortfolioProject(BaseModel):
     name: str
-    description: str
+    problem: str
+    features: list[str] = Field(min_length=3)
     skills_demonstrated: list[str]
 
 

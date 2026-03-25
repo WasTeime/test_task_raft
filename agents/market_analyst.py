@@ -21,7 +21,11 @@ SYSTEM_PROMPT = """Ты — старший аналитик IT-рынка тру
 Правила:
 - level: только "critical" | "important" | "nice-to-have"
 - trend: только "growing" | "stable" | "declining"
-- Минимум 3 навыка в каждой категории, максимум 6
+- Минимум 3 навыка в каждой категории, максимум 4
+- Swift, Python, JavaScript и другие основные языки роли — всегда "critical", никогда иначе
+- infrastructure и frameworks: максимум 4 навыка — только самые востребованные, остальное убирай
+- trend_reason: одна фраза почему такой тренд
+  Пример: {"name": "Objective-C", "level": "nice-to-have", "trend": "declining", "trend_reason": "Apple активно переводит экосистему на Swift начиная с 2014 года"}
 - Данные актуальны для рынка 2025-2026 (hh.ru, habr career, LinkedIn)
 - critical — без этого навыка не возьмут на работу
 - important — даёт преимущество перед другими кандидатами
@@ -44,9 +48,14 @@ class MarketAnalystAgent(BaseAgent):
 
         user_prompt = f"""Проанализируй рынок труда для специальности: "{role}"
 
-Выдели: languages, frameworks, infrastructure, soft_skills.
-Для каждого навыка: level (critical/important/nice-to-have) и trend (growing/stable/declining).
-Верни ТОЛЬКО JSON."""
+        Требования:
+        - Выдели навыки которые реально встречаются в вакансиях на hh.ru и habr career прямо сейчас
+        - languages: языки программирования используемые в этой роли
+        - frameworks: фреймворки и библиотеки специфичные для этой роли
+        - infrastructure: инструменты деплоя, CI/CD, облака, IDE специфичные для этой роли
+        - soft_skills: только межличностные качества проверяемые на собеседовании
+
+        Верни ТОЛЬКО JSON."""
 
         raw = self.llm.ask_json(SYSTEM_PROMPT, user_prompt)
         skill_map = SkillMap(**raw["skill_map"])
