@@ -23,12 +23,16 @@ class Skill(BaseModel):
     trend: SkillTrend
     trend_reason: str
 
+class SoftSkill(BaseModel):
+    name: str
+    level: SkillLevel
+    trend: SkillTrend
 
 class SkillMap(BaseModel):
     languages: list[Skill] = Field(default_factory=list)
     frameworks: list[Skill] = Field(default_factory=list)
     infrastructure: list[Skill] = Field(default_factory=list)
-    soft_skills: list[Skill] = Field(default_factory=list)
+    soft_skills: list[SoftSkill] = Field(default_factory=list)
 
 
 # ─── Агент 2: Оценщик зарплат ─────────────────────────────────────────────────
@@ -88,14 +92,15 @@ class Phase(BaseModel):
 
 
 class GapAnalysis(BaseModel):
-    quick_wins: list[str]
-    long_term: list[str]
+    quick_wins: list[str] = Field(min_length=3, max_length=4)
+    long_term: list[str] = Field(min_length=3, max_length=5)
 
 
 class PortfolioProject(BaseModel):
     name: str
     problem: str
-    features: list[str] = Field(min_length=3)
+    user_stories: list[str] = Field(min_length=3)
+    technical_challenges: list[str] = Field(min_length=2)
     skills_demonstrated: list[str]
 
 
@@ -120,5 +125,5 @@ class CriticResult(BaseModel):
     score_breakdown: ScoreBreakdown
     quality_score: int = Field(ge=0, le=100)
     quality_score_reason: str
-    warnings: list[str]
-    is_consistent: bool
+    warnings: list[str] = Field(default_factory=list)
+    is_consistent: bool = True

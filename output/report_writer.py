@@ -79,13 +79,21 @@ class ReportWriter:
             if not skills:
                 continue
             lines.append(f"### {title}\n")
-            lines.append("| Навык | Востребованность | Тренд | Почему |")
-            lines.append("|-------|-----------------|-------|--------|")
+            is_soft = key == "soft_skills"
+            if is_soft:
+                lines.append("| Навык | Востребованность | Тренд |")
+                lines.append("|-------|-----------------|-------|")
+            else:
+                lines.append("| Навык | Востребованность | Тренд | Почему |")
+                lines.append("|-------|-----------------|-------|--------|")
             for s in skills:
                 lvl = s.get("level", "")
                 trnd = s.get("trend", "")
-                reason = s.get("trend_reason", "")
-                lines.append(f"| {s.get('name')} | {lvl} | {trnd} | {reason} |")
+                if is_soft:
+                    lines.append(f"| {s.get('name')} | {lvl} | {trnd} |")
+                else:
+                    reason = s.get("trend_reason", "")
+                    lines.append(f"| {s.get('name')} | {lvl} | {trnd} | {reason} |")
             lines.append("")
         return "\n".join(lines)
 
@@ -167,13 +175,29 @@ class ReportWriter:
             "## Портфолио-проект\n",
             f"### {project.get('name', '')}\n",
             f"**Проблема:** {project.get('problem', '')}\n",
-            "**Функционал:**",
         ]
-        for f in project.get("features", []):
-            lines.append(f"- {f}")
-        skills_used = project.get("skills_demonstrated", [])
-        if skills_used:
-            lines.append(f"\n**Технологии:** {', '.join(skills_used)}\n")
+
+        user_stories = project.get("user_stories", [])
+        if user_stories:
+            lines.append("**Сценарии использования:**")
+            for s in user_stories:
+                lines.append(f"- {s}")
+            lines.append("")
+
+        challenges = project.get("technical_challenges", [])
+        if challenges:
+            lines.append("**Технические задачи:**")
+            for c in challenges:
+                lines.append(f"- {c}")
+            lines.append("")
+
+        skills = project.get("skills_demonstrated", [])
+        if skills:
+            lines.append("**Навыки в проекте:**")
+            for s in skills:
+                lines.append(f"- {s}")
+            lines.append("")
+
         return "\n".join(lines)
 
     def _section_quality(self, critic: dict) -> str:

@@ -1,0 +1,448 @@
+{
+  "role": "Python Backend Developer",
+  "generated_at": "2026-03-27T09:27:26.523205+00:00",
+  "skill_map": {
+    "languages": [
+      {
+        "name": "Python",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Python остаётся основным языком для backend-разработки, спрос стабилен на протяжении последних лет"
+      },
+      {
+        "name": "SQL",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Реляционные БД по-прежнему доминируют в enterprise-приложениях, SQL обязателен"
+      },
+      {
+        "name": "JavaScript",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Требуется для работы с фронтенд-интеграциями и Node.js альтернатив, встречается в 40% вакансий"
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "Django",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Самый популярный фреймворк для Python backend в России и СНГ, используется в крупных проектах"
+      },
+      {
+        "name": "FastAPI",
+        "level": "important",
+        "trend": "growing",
+        "trend_reason": "Активно вытесняет Flask в новых проектах благодаря встроенной поддержке async и автодокументации"
+      },
+      {
+        "name": "Flask",
+        "level": "important",
+        "trend": "declining",
+        "trend_reason": "Остаётся популярным в legacy-проектах, но в новых разработках вытесняется FastAPI"
+      },
+      {
+        "name": "SQLAlchemy",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Стандартный ORM для Python backend, встречается в большинстве вакансий"
+      }
+    ],
+    "infrastructure": [
+      {
+        "name": "Docker",
+        "level": "critical",
+        "trend": "growing",
+        "trend_reason": "Контейнеризация стала стандартом, требуется в 85% вакансий для backend-разработчиков"
+      },
+      {
+        "name": "PostgreSQL",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Доминирующая СУБД для Python backend-приложений в enterprise-секторе"
+      },
+      {
+        "name": "Kubernetes",
+        "level": "important",
+        "trend": "growing",
+        "trend_reason": "Требуется в крупных компаниях и стартапах с масштабируемой инфраструктурой"
+      },
+      {
+        "name": "AWS / Azure / GCP",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Облачные платформы обязательны, AWS лидирует на российском рынке"
+      }
+    ],
+    "soft_skills": [
+      {
+        "name": "Коммуникация в команде",
+        "level": "critical",
+        "trend": "stable"
+      },
+      {
+        "name": "Аналитическое мышление",
+        "level": "critical",
+        "trend": "stable"
+      },
+      {
+        "name": "Ответственность и надёжность",
+        "level": "important",
+        "trend": "stable"
+      }
+    ]
+  },
+  "salary_table": {
+    "junior": {
+      "moscow": {
+        "min": 80.0,
+        "median": 110.0,
+        "max": 150.0
+      },
+      "regions_rub": {
+        "min": 50.0,
+        "median": 75.0,
+        "max": 120.0
+      },
+      "remote_usd": {
+        "min": 1000.0,
+        "median": 1400.0,
+        "max": 1900.0
+      }
+    },
+    "middle": {
+      "moscow": {
+        "min": 100.0,
+        "median": 140.0,
+        "max": 220.0
+      },
+      "regions_rub": {
+        "min": 80.0,
+        "median": 115.0,
+        "max": 180.0
+      },
+      "remote_usd": {
+        "min": 1500.0,
+        "median": 2200.0,
+        "max": 3200.0
+      }
+    },
+    "senior": {
+      "moscow": {
+        "min": 150.0,
+        "median": 240.0,
+        "max": 420.0
+      },
+      "regions_rub": {
+        "min": 120.0,
+        "median": 180.0,
+        "max": 320.0
+      },
+      "remote_usd": {
+        "min": 2500.0,
+        "median": 3500.0,
+        "max": 5000.0
+      }
+    },
+    "lead": {
+      "moscow": {
+        "min": 250.0,
+        "median": 350.0,
+        "max": 480.0
+      },
+      "regions_rub": {
+        "min": 200.0,
+        "median": 280.0,
+        "max": 400.0
+      },
+      "remote_usd": {
+        "min": 3500.0,
+        "median": 4800.0,
+        "max": 6500.0
+      }
+    },
+    "market_trend": "growing",
+    "market_trend_reason": "Python Backend остаётся в топе спроса благодаря популярности Django и FastAPI в корпоративной разработке. Рост облачных инфраструктур (AWS, Kubernetes) увеличивает требования к бэкенд-разработчикам с DevOps-навыками, что поддерживает стабильный спрос и рост зарплат на 5-8% год к году.",
+    "top_employers": [
+      {
+        "name": "Яндекс",
+        "type": "российская",
+        "description": "поисковик и экосистема сервисов, активно нанимает Python-разработчиков"
+      },
+      {
+        "name": "Тензор",
+        "type": "российская",
+        "description": "разработка 1С и облачных решений, крупный работодатель в регионах"
+      },
+      {
+        "name": "evrone.ru",
+        "type": "российская",
+        "description": "аутсорс-компания с фокусом на веб и мобильную разработку"
+      },
+      {
+        "name": "Mail.ru Group",
+        "type": "российская",
+        "description": "медиа и технологии, активный наём backend-разработчиков"
+      },
+      {
+        "name": "Сбер",
+        "type": "российская",
+        "description": "финтех и цифровые сервисы, один из крупнейших работодателей IT-специалистов"
+      }
+    ]
+  },
+  "learning_path": {
+    "phases": [
+      {
+        "name": "Foundation",
+        "duration_days": 30,
+        "path": [
+          "Django ORM → создаёшь модели User и Post, добавляешь записи через shell, фильтруешь по дате и автору, видишь SQL-запросы в логах",
+          "Миграции → меняешь поле в модели, запускаешь migrate, откатываешь на предыдущую версию, видишь что данные сохранились",
+          "Django REST Framework → endpoint GET /api/posts возвращает JSON со списком постов, POST /api/posts создаёт новый пост, DELETE удаляет",
+          "PostgreSQL → создаёшь индекс на поле created_at, запрос по дате работает в 10 раз быстрее, видишь разницу в EXPLAIN ANALYZE",
+          "Docker → пишешь Dockerfile для Django приложения, собираешь образ, запускаешь контейнер, приложение доступно на localhost:8000"
+        ],
+        "topics": [
+          "Django ORM и миграции",
+          "REST API с Django REST Framework",
+          "PostgreSQL и индексы",
+          "Docker базовые концепции",
+          "Аутентификация и авторизация"
+        ],
+        "resources": [
+          {
+            "name": "Django for Beginners",
+            "type": "курс",
+            "url": "https://www.youtube.com/watch?v=rHux0gMZ3Eg",
+            "is_free": true
+          },
+          {
+            "name": "Stepik: Django REST Framework",
+            "type": "курс",
+            "url": "https://stepik.org/course/129694",
+            "is_free": true
+          },
+          {
+            "name": "PostgreSQL Tutorial",
+            "type": "документация",
+            "url": "https://www.postgresql.org/docs/current/tutorial.html",
+            "is_free": true
+          },
+          {
+            "name": "Docker для разработчиков",
+            "type": "курс",
+            "url": "https://www.udemy.com/course/docker-mastery/",
+            "is_free": false
+          }
+        ],
+        "milestone": "Могу создать Django приложение с моделями, REST API эндпоинтами, PostgreSQL базой и запустить в Docker контейнере",
+        "practice_projects": [
+          {
+            "name": "Блог с комментариями",
+            "description": "Создаёшь модели Post и Comment, пишешь API для получения постов с фильтром по автору, добавления комментариев, удаления своих постов. Данные хранятся в PostgreSQL, приложение работает в Docker"
+          },
+          {
+            "name": "Система управления задачами",
+            "description": "Создаёшь модели Task и User, пишешь эндпоинты для создания задач, изменения статуса, фильтрации по приоритету и дате. Добавляешь базовую аутентификацию через токены"
+          },
+          {
+            "name": "API каталога товаров",
+            "description": "Создаёшь модели Product и Category, пишешь эндпоинты для получения товаров с пагинацией, фильтром по цене и категории, поиском по названию. Добавляешь индексы в PostgreSQL для оптимизации"
+          }
+        ]
+      },
+      {
+        "name": "Practice",
+        "duration_days": 30,
+        "path": [
+          "FastAPI → создаёшь async функции, endpoint /api/items возвращает JSON, используешь Pydantic для валидации, видишь автоматическую документацию в Swagger",
+          "Pytest → пишешь тесты для API эндпоинтов, проверяешь статус коды и структуру ответов, запускаешь coverage и видишь что покрыто на 85%",
+          "Redis → кэшируешь результаты дорогих запросов, при повторном запросе данные приходят из кэша за 1мс вместо 500мс",
+          "Docker Compose → описываешь в docker-compose.yml три сервиса (Django, PostgreSQL, Redis), запускаешь docker-compose up и всё работает вместе",
+          "GitHub Actions → пишешь workflow который при push запускает тесты, проверяет линтер, собирает Docker образ и выкладывает на Docker Hub"
+        ],
+        "topics": [
+          "FastAPI и асинхронность",
+          "Тестирование (pytest, unittest)",
+          "Кэширование и Redis",
+          "Docker Compose и многоконтейнерные приложения",
+          "CI/CD базовые концепции"
+        ],
+        "resources": [
+          {
+            "name": "FastAPI Official Tutorial",
+            "type": "документация",
+            "url": "https://fastapi.tiangolo.com/tutorial/",
+            "is_free": true
+          },
+          {
+            "name": "Pytest для Python разработчиков",
+            "type": "курс",
+            "url": "https://www.youtube.com/watch?v=bbp_849-RZ4",
+            "is_free": true
+          },
+          {
+            "name": "Redis и кэширование",
+            "type": "курс",
+            "url": "https://www.udemy.com/course/redis-the-complete-developer-guide/",
+            "is_free": false
+          },
+          {
+            "name": "Docker Compose Documentation",
+            "type": "документация",
+            "url": "https://docs.docker.com/compose/",
+            "is_free": true
+          }
+        ],
+        "milestone": "Могу написать FastAPI приложение с асинхронными функциями, покрыть тестами, добавить кэширование через Redis, запустить через Docker Compose и настроить CI/CD в GitHub Actions",
+        "practice_projects": [
+          {
+            "name": "Микросервис рекомендаций",
+            "description": "Пишешь FastAPI приложение которое получает ID пользователя, возвращает рекомендованные товары. Результаты кэшируются в Redis на 1 час. Пишешь тесты для всех эндпоинтов. Запускаешь через Docker Compose с PostgreSQL и Redis"
+          },
+          {
+            "name": "API аналитики с асинхронностью",
+            "description": "Создаёшь FastAPI приложение с async функциями для обработки событий, сохранения в PostgreSQL и кэширования статистики в Redis. Пишешь unit-тесты и интеграционные тесты. Настраиваешь GitHub Actions для автоматического запуска тестов"
+          },
+          {
+            "name": "Многоконтейнерное приложение",
+            "description": "Пишешь Django приложение с FastAPI микросервисом, оба работают с одной PostgreSQL базой и Redis кэшем. Описываешь всё в docker-compose.yml, добавляешь nginx как reverse proxy, настраиваешь логирование"
+          }
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "duration_days": 30,
+        "path": [
+          "Kubernetes → пишешь deployment.yaml для Django приложения, создаёшь service, масштабируешь на 3 реплики, видишь как поды перезапускаются при сбое",
+          "AWS RDS → создаёшь управляемую PostgreSQL базу в AWS, подключаешь Django приложение, видишь автоматические бэкапы и failover",
+          "AWS S3 → загружаешь медиафайлы в S3 вместо локальной файловой системы, настраиваешь CloudFront для кэширования, видишь как файлы раздаются быстро",
+          "Мониторинг → добавляешь Prometheus метрики в приложение, видишь в Grafana графики CPU, памяти, количества запросов, настраиваешь алерты",
+          "Логирование → настраиваешь ELK стек (Elasticsearch, Logstash, Kibana) или CloudWatch, видишь все логи приложения в одном месте, можешь искать по ошибкам"
+        ],
+        "topics": [
+          "Kubernetes основы",
+          "AWS / облачные сервисы",
+          "Оптимизация производительности",
+          "Мониторинг и логирование",
+          "Продакшн-ready архитектура"
+        ],
+        "resources": [
+          {
+            "name": "Kubernetes для разработчиков",
+            "type": "курс",
+            "url": "https://www.youtube.com/watch?v=X48VuDVv0Z0",
+            "is_free": true
+          },
+          {
+            "name": "AWS для Python разработчиков",
+            "type": "курс",
+            "url": "https://www.udemy.com/course/aws-certified-cloud-practitioner/",
+            "is_free": false
+          },
+          {
+            "name": "Prometheus и Grafana",
+            "type": "документация",
+            "url": "https://prometheus.io/docs/introduction/overview/",
+            "is_free": true
+          },
+          {
+            "name": "Production-Ready Django",
+            "type": "курс",
+            "url": "https://www.kodeco.com/",
+            "is_free": false
+          }
+        ],
+        "milestone": "Могу развернуть Django приложение на Kubernetes в AWS, настроить автоскейлинг, мониторинг через Prometheus и Grafana, логирование в CloudWatch, оптимизировать производительность под нагрузку",
+        "practice_projects": [
+          {
+            "name": "Приложение на Kubernetes",
+            "description": "Берёшь своё Django приложение, пишешь Dockerfile, создаёшь deployment и service манифесты для Kubernetes, запускаешь локально через Minikube, настраиваешь health checks и readiness probes"
+          },
+          {
+            "name": "Облачное приложение на AWS",
+            "description": "Развораиваешь Django приложение на AWS EC2 или ECS, используешь RDS для базы, S3 для медиа, CloudFront для кэширования, настраиваешь автоскейлинг через Application Load Balancer"
+          },
+          {
+            "name": "Мониторинг и алерты",
+            "description": "Добавляешь Prometheus метрики в приложение, настраиваешь Grafana дашборд с графиками, создаёшь алерты на высокий CPU и ошибки, интегрируешь с Slack для уведомлений"
+          }
+        ]
+      }
+    ],
+    "gap_analysis": {
+      "quick_wins": [
+        "Django ORM и миграции (модели, связи, фильтрация, оптимизация запросов) — 1 неделя",
+        "REST API с Django REST Framework (сериализаторы, эндпоинты, пагинация, фильтры) — 1 неделя",
+        "PostgreSQL и индексы (создание таблиц, индексы, EXPLAIN ANALYZE, оптимизация) — 5 дней",
+        "Docker базовые концепции (Dockerfile, образы, контейнеры, docker-compose) — 5 дней"
+      ],
+      "long_term": [
+        "Django REST Framework — пишешь полнофункциональный REST API с авторизацией, пагинацией, фильтрами, тестами — 2-3 месяца",
+        "FastAPI и асинхронность — создаёшь высокопроизводительные async приложения с Pydantic валидацией и автодокументацией — 1-2 месяца",
+        "Docker и Docker Compose — запускаешь многоконтейнерные приложения с БД, кэшем, reverse proxy локально и в продакшене — 2-3 месяца",
+        "Kubernetes и облачные сервисы — развораиваешь приложения на AWS/GCP/Azure, настраиваешь автоскейлинг, мониторинг, логирование — 3-4 месяца",
+        "Оптимизация и мониторинг — профилируешь приложение, находишь узкие места, настраиваешь алерты, достигаешь SLA 99.9% — 2-3 месяца"
+      ]
+    },
+    "portfolio_project": {
+      "name": "SaaS платформа управления проектами — Collaborative Task Manager",
+      "problem": "Команды теряют время на синхронизацию задач в разных инструментах, не видят реального прогресса проекта, не могут быстро масштабироваться при росте команды, теряют данные при сбоях серверов",
+      "user_stories": [
+        "Создаю проект → приглашаю членов команды → они видят все задачи в реальном времени",
+        "Создаю задачу → назначаю исполнителя → он получает уведомление → меняет статус → я вижу обновление за 100мс",
+        "Фильтрую задачи по приоритету, исполнителю, дате → вижу только релевантные → экспортирую в CSV",
+        "Система обрабатывает 10000 одновременных пользователей → не падает → автоматически масштабируется",
+        "Сервер упал → данные восстановились из бэкапа → потеря менее 1 минуты"
+      ],
+      "technical_challenges": [
+        "Django ORM с оптимизацией — фильтрация 100k задач по 5 критериям без N+1 запросов, индексы на PostgreSQL, кэширование в Redis",
+        "WebSocket через Django Channels — реальное время обновления задач для 100+ пользователей в одном проекте без задержек",
+        "Kubernetes и автоскейлинг — приложение масштабируется с 1 до 10 подов при росте нагрузки, сессии хранятся в Redis, не теряются при перезагрузке",
+        "AWS RDS с Multi-AZ — автоматический failover при сбое, ежедневные бэкапы, восстановление за 5 минут",
+        "Мониторинг и алерты — Prometheus метрики, Grafana дашборд, Slack уведомления при ошибках, SLA 99.9%"
+      ],
+      "skills_demonstrated": [
+        "Django ORM и миграции — модели Project, Task, User с связями, оптимизированные запросы с select_related и prefetch_related",
+        "Django REST Framework — полный CRUD API с авторизацией через JWT, пагинация, фильтры, поиск",
+        "PostgreSQL и индексы — индексы на часто фильтруемые поля, EXPLAIN ANALYZE для оптимизации, полнотекстовый поиск",
+        "Redis и кэширование — кэширование списков задач, инвалидация при изменении, хранение сессий",
+        "Docker и Docker Compose — Dockerfile для приложения, docker-compose.yml с Django, PostgreSQL, Redis, Nginx",
+        "Kubernetes — deployment.yaml, service, ingress, horizontal pod autoscaler, health checks",
+        "AWS — RDS для базы, S3 для файлов, CloudFront для кэширования, Application Load Balancer",
+        "Мониторинг — Prometheus метрики (requests, errors, latency), Grafana дашборд, алерты в Slack",
+        "CI/CD — GitHub Actions для запуска тестов, линтера, сборки Docker образа, деплоя на AWS",
+        "Тестирование — pytest для unit-тестов, интеграционные тесты для API, coverage 85%+"
+      ]
+    }
+  },
+  "critic_result": {
+    "score_breakdown": {
+      "salary_market_match": {
+        "score": 25,
+        "reason": "норма"
+      },
+      "skills_consistency": {
+        "score": 24,
+        "reason": "Flask отмечен как declining без явной причины в trend_reason — минус 1 балл"
+      },
+      "learning_path_quality": {
+        "score": 21,
+        "reason": "Path содержит описательные фразы вместо чистых действий (создаёшь, видишь) — минус 2 балла. Quick wins для Docker указаны 5 дней, но в Practice этап требует Docker Compose и CI/CD, что реалистично займёт 2-3 недели для новичка — минус 2 балла"
+      },
+      "portfolio_relevance": {
+        "score": 23,
+        "reason": "User stories содержат технические метрики (100мс, 10000 пользователей) вместо чистых пользовательских действий — минус 2 балла"
+      }
+    },
+    "quality_score": 93,
+    "quality_score_reason": "Зарплатные диапазоны корректны, навыки хорошо структурированы. Основные проблемы: нереалистичные сроки в quick wins для Docker, user stories смешаны с техническими метриками вместо чистых действий пользователя.",
+    "warnings": [
+      "Gap-анализ: quick_wins указывают Docker за 5 дней, но Practice этап требует Docker Compose и CI/CD — рекомендуй 2-3 недели для реалистичного освоения",
+      "Portfolio: user stories содержат технические метрики (100мс, 10000 пользователей) — переформулируй в чистые действия без цифр (делаю → вижу)",
+      "Learning path: Foundation и Practice этапы по 30 дней каждый, но Portfolio этап также 30 дней для Kubernetes и AWS — для новичка это оптимистично, рекомендуй 6-8 недель"
+    ],
+    "is_consistent": true
+  }
+}

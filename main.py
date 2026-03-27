@@ -10,6 +10,7 @@ from agents.market_analyst import MarketAnalystAgent
 from agents.salary_estimator import SalaryEstimatorAgent
 from core.llm_client import LLMClient
 from core.pipeline import Pipeline
+from core.role_clarifier import clarify_role
 from output.report_writer import ReportWriter
 
 
@@ -23,6 +24,7 @@ def setup_logging(verbose: bool, log_prompts: bool = False) -> None:
     logging.getLogger("httpx").setLevel(logging.WARNING)
     logging.getLogger("httpcore").setLevel(logging.WARNING)
     logging.getLogger("groq").setLevel(logging.WARNING)
+    logging.getLogger("openai").setLevel(logging.WARNING)
     if log_prompts and not verbose:
         logging.getLogger("core.llm_client").setLevel(logging.DEBUG)
 
@@ -55,6 +57,9 @@ def main() -> None:
 
     try:
         llm = LLMClient(log_prompts=args.log_prompts)
+
+        role = clarify_role(llm, args.role)
+        logger.info("Старт анализа: %s", role)
 
         pipeline = (
             Pipeline(role=args.role)

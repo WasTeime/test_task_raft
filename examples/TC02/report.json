@@ -1,0 +1,467 @@
+{
+  "role": "ML Engineer",
+  "generated_at": "2026-03-27T09:33:21.915343+00:00",
+  "skill_map": {
+    "languages": [
+      {
+        "name": "Python",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Python остаётся стандартом индустрии для ML, его доля в вакансиях не снижается"
+      },
+      {
+        "name": "SQL",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Работа с данными требует SQL для всех ML-инженеров, спрос постоянен"
+      },
+      {
+        "name": "Java",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Используется в production-системах и микросервисной архитектуре ML-платформ"
+      },
+      {
+        "name": "C++",
+        "level": "nice-to-have",
+        "trend": "stable",
+        "trend_reason": "Требуется для оптимизации вычислений и работы с low-level инструментами"
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "PyTorch",
+        "level": "critical",
+        "trend": "growing",
+        "trend_reason": "Лидирует в исследованиях и production-системах, вытесняет TensorFlow в новых проектах"
+      },
+      {
+        "name": "TensorFlow",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Укоренён в enterprise-решениях, остаётся обязательным для legacy-систем"
+      },
+      {
+        "name": "Scikit-learn",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Стандарт для классических ML-алгоритмов и baseline-моделей"
+      },
+      {
+        "name": "LangChain",
+        "level": "important",
+        "trend": "growing",
+        "trend_reason": "Спрос растёт с развитием LLM-приложений и RAG-систем"
+      }
+    ],
+    "infrastructure": [
+      {
+        "name": "Docker",
+        "level": "critical",
+        "trend": "stable",
+        "trend_reason": "Обязателен для контейнеризации ML-моделей и воспроизводимости окружения"
+      },
+      {
+        "name": "Kubernetes",
+        "level": "important",
+        "trend": "growing",
+        "trend_reason": "Требуется для масштабирования ML-сервисов в production, растёт в enterprise"
+      },
+      {
+        "name": "AWS",
+        "level": "important",
+        "trend": "stable",
+        "trend_reason": "Лидирует среди облачных платформ для ML-инженеров в России и мире"
+      },
+      {
+        "name": "MLflow",
+        "level": "important",
+        "trend": "growing",
+        "trend_reason": "Становится стандартом для управления экспериментами и версионирования моделей"
+      }
+    ],
+    "soft_skills": [
+      {
+        "name": "Коммуникация с бизнесом",
+        "level": "critical",
+        "trend": "growing"
+      },
+      {
+        "name": "Командная работа",
+        "level": "critical",
+        "trend": "stable"
+      },
+      {
+        "name": "Аналитическое мышление",
+        "level": "critical",
+        "trend": "stable"
+      }
+    ]
+  },
+  "salary_table": {
+    "junior": {
+      "moscow": {
+        "min": 85.0,
+        "median": 110.0,
+        "max": 150.0
+      },
+      "regions_rub": {
+        "min": 70.0,
+        "median": 90.0,
+        "max": 130.0
+      },
+      "remote_usd": {
+        "min": 1000.0,
+        "median": 1400.0,
+        "max": 2000.0
+      }
+    },
+    "middle": {
+      "moscow": {
+        "min": 120.0,
+        "median": 200.0,
+        "max": 350.0
+      },
+      "regions_rub": {
+        "min": 90.0,
+        "median": 160.0,
+        "max": 280.0
+      },
+      "remote_usd": {
+        "min": 1800.0,
+        "median": 2500.0,
+        "max": 3800.0
+      }
+    },
+    "senior": {
+      "moscow": {
+        "min": 180.0,
+        "median": 270.0,
+        "max": 450.0
+      },
+      "regions_rub": {
+        "min": 140.0,
+        "median": 220.0,
+        "max": 380.0
+      },
+      "remote_usd": {
+        "min": 3000.0,
+        "median": 4200.0,
+        "max": 6500.0
+      }
+    },
+    "lead": {
+      "moscow": {
+        "min": 250.0,
+        "median": 310.0,
+        "max": 450.0
+      },
+      "regions_rub": {
+        "min": 180.0,
+        "median": 260.0,
+        "max": 400.0
+      },
+      "remote_usd": {
+        "min": 4500.0,
+        "median": 5800.0,
+        "max": 8000.0
+      }
+    },
+    "market_trend": "growing",
+    "market_trend_reason": "Спрос на ML-инженеров растёт благодаря внедрению LLM-решений и генеративного ИИ в российских компаниях. Количество вакансий на hh.ru стабильно увеличивается, особенно для middle и senior уровней с опытом в PyTorch и LangChain.",
+    "top_employers": [
+      {
+        "name": "RedLab",
+        "type": "российская",
+        "description": "лидер по числу ML-вакансий, разработка аналитических платформ"
+      },
+      {
+        "name": "Any",
+        "type": "российская",
+        "description": "технологическая компания с фокусом на машинное обучение"
+      },
+      {
+        "name": "ИЦ АЙ-ТЕКО",
+        "type": "российская",
+        "description": "IT-консалтинг и разработка ML-решений"
+      },
+      {
+        "name": "МФТИ",
+        "type": "российская",
+        "description": "научные проекты и прикладные исследования в области ИИ"
+      },
+      {
+        "name": "DataLouna",
+        "type": "российская",
+        "description": "платформа для работы с данными и ML-моделями"
+      }
+    ]
+  },
+  "learning_path": {
+    "phases": [
+      {
+        "name": "Foundation",
+        "duration_days": 30,
+        "path": [
+          "NumPy → создаёшь матрицы, выполняешь операции линейной алгебры, вычисляешь градиенты вручную",
+          "Pandas → загружаешь CSV с 100k строк, чистишь пропуски, группируешь по категориям, строишь сводные таблицы",
+          "SQL → пишешь запросы с JOIN, GROUP BY, агрегирующие функции, фильтруешь по условиям на датасете 1M+ записей",
+          "PyTorch тензоры → создаёшь тензоры, выполняешь операции, вычисляешь градиенты через autograd, видишь как меняются веса",
+          "Docker → пакуешь Python-скрипт с зависимостями в контейнер, запускаешь на другой машине, результат идентичен"
+        ],
+        "topics": [
+          "Python для ML (NumPy, Pandas)",
+          "SQL для анализа данных",
+          "Основы машинного обучения",
+          "PyTorch базовые операции",
+          "Docker для воспроизводимости"
+        ],
+        "resources": [
+          {
+            "name": "NumPy для анализа данных",
+            "type": "курс",
+            "url": "https://stepik.org/course/8132-numpy-dlya-nachinayushchih",
+            "is_free": true
+          },
+          {
+            "name": "Pandas для обработки данных",
+            "type": "курс",
+            "url": "https://stepik.org/course/4243-pandas-dlya-nachinayushchih",
+            "is_free": true
+          },
+          {
+            "name": "SQL для анализа данных",
+            "type": "курс",
+            "url": "https://stepik.org/course/63054-sql-dlya-analiza-dannyh",
+            "is_free": true
+          },
+          {
+            "name": "PyTorch для начинающих",
+            "type": "видео",
+            "url": "https://www.youtube.com/playlist?list=PLlQQlp73M2rTYm-DmRkJNaWJLRnB25-_7",
+            "is_free": true
+          },
+          {
+            "name": "Docker для разработчиков",
+            "type": "курс",
+            "url": "https://stepik.org/course/123079-docker-dlya-razrabotchikov",
+            "is_free": true
+          }
+        ],
+        "milestone": "Могу загрузить датасет, очистить пропуски, создать простую модель линейной регрессии на PyTorch, упаковать в Docker",
+        "practice_projects": [
+          {
+            "name": "Анализ продаж с Pandas и SQL",
+            "description": "Загружаешь CSV с продажами, чистишь дубликаты и пропуски, группируешь по месяцам и категориям, пишешь SQL-запросы для поиска топ-товаров, строишь графики тренда продаж"
+          },
+          {
+            "name": "Линейная регрессия на PyTorch",
+            "description": "Создаёшь датасет синтетических данных (X, y), инициализируешь веса, пишешь цикл обучения с MSE-лоссом, видишь как лосс падает, делаешь предсказания на новых данных"
+          },
+          {
+            "name": "Docker-контейнер для ML-скрипта",
+            "description": "Пишешь Python-скрипт для обработки данных, создаёшь Dockerfile с зависимостями (numpy, pandas), собираешь образ, запускаешь контейнер, проверяешь что результаты воспроизводятся"
+          }
+        ]
+      },
+      {
+        "name": "Practice",
+        "duration_days": 30,
+        "path": [
+          "Scikit-learn → тренируешь RandomForest на датасете Iris, вычисляешь accuracy, precision, recall, строишь confusion matrix",
+          "TensorFlow Keras → создаёшь Sequential модель с Dense слоями, тренируешь на MNIST, видишь как accuracy растёт, делаешь предсказания на тестовом наборе",
+          "Кросс-валидация → делишь данные на 5 фолдов, тренируешь модель на каждом, усредняешь метрики, видишь стабильность модели",
+          "MLflow → логируешь параметры модели, метрики, артефакты, сравниваешь несколько экспериментов в UI, выбираешь лучший",
+          "Kubernetes Pod → пакуешь ML-скрипт в Docker, создаёшь Pod манифест, запускаешь в кластере, видишь логи выполнения"
+        ],
+        "topics": [
+          "Scikit-learn классификация и регрессия",
+          "TensorFlow и Keras для нейросетей",
+          "Валидация и метрики моделей",
+          "MLflow для отслеживания экспериментов",
+          "Kubernetes основы для ML-пайплайнов"
+        ],
+        "resources": [
+          {
+            "name": "Scikit-learn для машинного обучения",
+            "type": "курс",
+            "url": "https://stepik.org/course/4852-mashinoe-obuchenie-na-python",
+            "is_free": true
+          },
+          {
+            "name": "TensorFlow и Keras с примерами",
+            "type": "видео",
+            "url": "https://www.youtube.com/playlist?list=PLQVvvDP_xJwPTD4sK_SWo6eKS7ZLJcZAJ",
+            "is_free": true
+          },
+          {
+            "name": "MLflow для отслеживания экспериментов",
+            "type": "курс",
+            "url": "https://udemy.com/course/mlflow-machine-learning-lifecycle",
+            "is_free": false
+          },
+          {
+            "name": "Kubernetes для ML-инженеров",
+            "type": "документация",
+            "url": "https://kubernetes.io/docs/concepts/workloads/pods/",
+            "is_free": true
+          },
+          {
+            "name": "Валидация и метрики в ML",
+            "type": "курс",
+            "url": "https://stepik.org/course/4852",
+            "is_free": true
+          }
+        ],
+        "milestone": "Могу обучить классификационную модель, оценить её на кросс-валидации, залогировать эксперимент в MLflow, развернуть в Kubernetes",
+        "practice_projects": [
+          {
+            "name": "Классификация текстов с Scikit-learn",
+            "description": "Загружаешь датасет отзывов, векторизуешь текст TfidfVectorizer, тренируешь LogisticRegression и SVM, сравниваешь метрики (precision, recall, F1), строишь ROC-кривую"
+          },
+          {
+            "name": "Нейросеть для распознавания цифр на TensorFlow",
+            "description": "Создаёшь CNN модель для MNIST, тренируешь с validation split, видишь как loss падает, оцениваешь на тестовом наборе, сохраняешь модель, загружаешь и делаешь предсказания"
+          },
+          {
+            "name": "MLflow эксперименты для гиперпараметров",
+            "description": "Тренируешь RandomForest с разными параметрами (n_estimators, max_depth), логируешь каждый запуск в MLflow, сравниваешь в UI, выбираешь лучшую конфигурацию"
+          }
+        ]
+      },
+      {
+        "name": "Portfolio",
+        "duration_days": 30,
+        "path": [
+          "PyTorch модели → создаёшь класс наследующий nn.Module, определяешь слои, реализуешь forward pass, тренируешь на GPU, видишь ускорение",
+          "LangChain цепочки → создаёшь цепь LLM + Retriever, подключаешь к векторной БД, делаешь RAG-запросы, видишь ответы с источниками",
+          "Docker Compose → описываешь ML-сервис, БД, Redis в одном файле, запускаешь весь стек одной командой, сервис доступен на localhost",
+          "AWS SageMaker → загружаешь модель, создаёшь endpoint, отправляешь запросы через API, видишь предсказания в реальном времени",
+          "Prometheus метрики → добавляешь счётчики (количество предсказаний, время инференса), собираешь в Prometheus, строишь графики в Grafana"
+        ],
+        "topics": [
+          "PyTorch для глубокого обучения",
+          "LangChain для LLM-приложений",
+          "Продакшн-пайплайны с Docker и Kubernetes",
+          "AWS для развёртывания моделей",
+          "Мониторинг и оптимизация моделей"
+        ],
+        "resources": [
+          {
+            "name": "PyTorch Advanced: Custom Models",
+            "type": "курс",
+            "url": "https://www.udemy.com/course/pytorch-for-deep-learning",
+            "is_free": false
+          },
+          {
+            "name": "LangChain для разработчиков",
+            "type": "видео",
+            "url": "https://www.youtube.com/playlist?list=PLfaIDFEXVK3qLvtXIL9cSl_M9dvVEMwHx",
+            "is_free": true
+          },
+          {
+            "name": "AWS SageMaker документация",
+            "type": "документация",
+            "url": "https://docs.aws.amazon.com/sagemaker/",
+            "is_free": true
+          },
+          {
+            "name": "Docker Compose для микросервисов",
+            "type": "курс",
+            "url": "https://stepik.org/course/123079",
+            "is_free": true
+          },
+          {
+            "name": "Мониторинг ML-моделей с Prometheus",
+            "type": "видео",
+            "url": "https://www.youtube.com/results?search_query=prometheus+monitoring+ml+models",
+            "is_free": true
+          }
+        ],
+        "milestone": "Могу создать LLM-приложение с RAG, упаковать в Docker, развернуть на AWS, настроить мониторинг метрик инференса",
+        "practice_projects": [
+          {
+            "name": "Трансформер для классификации текстов на PyTorch",
+            "description": "Создаёшь архитектуру с embedding слоем, attention блоками, полносвязными слоями, тренируешь на датасете классификации, оцениваешь на тестовом наборе, сохраняешь чекпойнт"
+          },
+          {
+            "name": "RAG-приложение с LangChain и OpenAI",
+            "description": "Загружаешь документы, создаёшь векторную БД с embeddings, подключаешь LLM через LangChain, делаешь запросы, видишь ответы с цитатами из источников, упаковываешь в Docker"
+          },
+          {
+            "name": "ML-сервис на AWS SageMaker с мониторингом",
+            "description": "Загружаешь модель в SageMaker, создаёшь endpoint, отправляешь батчи предсказаний, добавляешь Prometheus метрики (latency, throughput), видишь графики в Grafana"
+          }
+        ]
+      }
+    ],
+    "gap_analysis": {
+      "quick_wins": [
+        "Базовый синтаксис Python и NumPy (переменные, списки, массивы, операции) — 1 неделя",
+        "Pandas для очистки данных (загрузка CSV, пропуски, группировка, агрегация) — 1 неделя",
+        "SQL запросы (SELECT, JOIN, GROUP BY, WHERE на реальных датасетах) — 1 неделя",
+        "PyTorch тензоры и autograd (создание, операции, вычисление градиентов) — 1 неделя"
+      ],
+      "long_term": [
+        "Scikit-learn — тренируешь классификационные и регрессионные модели, оцениваешь на кросс-валидации, подбираешь гиперпараметры — 2-3 недели",
+        "TensorFlow/Keras — создаёшь нейросети для изображений и текстов, тренируешь на GPU, сохраняешь и загружаешь модели — 3-4 недели",
+        "PyTorch продвинутый — пишешь собственные слои и модели, используешь трансформеры, тренируешь на больших датасетах — 4-5 недель",
+        "LangChain + LLM — создаёшь RAG-приложения, подключаешь к векторным БД, интегрируешь с OpenAI/Anthropic — 2-3 недели",
+        "Продакшн-пайплайны — упаковываешь модели в Docker, развораиваешь на Kubernetes/AWS, настраиваешь мониторинг и логирование — 3-4 недели"
+      ]
+    },
+    "portfolio_project": {
+      "name": "SmartDocAssistant — RAG-система для анализа корпоративных документов",
+      "problem": "Сотрудники компании теряют часы на поиск информации в сотнях документов (контракты, политики, отчёты). Нет единого способа задать вопрос и получить ответ с ссылкой на источник. Информация разрозненна и неструктурирована.",
+      "user_stories": [
+        "Загружаю PDF-документы в систему → система создаёт embeddings и индексирует их в векторной БД",
+        "Задаю вопрос на русском языке → система находит релевантные фрагменты и возвращает ответ с цитатами и ссылками на документы",
+        "Вижу время обработки запроса и количество найденных источников → понимаю надёжность ответа",
+        "Система работает 24/7 в облаке → я могу обращаться к ней с любого устройства через веб-интерфейс"
+      ],
+      "technical_challenges": [
+        "LangChain + Vector DB (Pinecone/Weaviate) — индексирование 10k+ документов, поиск релевантных фрагментов за <1 сек, обработка многоязычных запросов",
+        "PyTorch embedding модель (или OpenAI API) — преобразование текста в векторы, обеспечение качества поиска через fine-tuning на корпоративных данных",
+        "Docker + Kubernetes + AWS — упаковка сервиса, масштабирование под нагрузку, кэширование результатов, мониторинг latency и accuracy ответов"
+      ],
+      "skills_demonstrated": [
+        "LangChain — создание цепочки Retriever → LLM, обработка контекста, форматирование ответов с источниками",
+        "PyTorch — использование pre-trained embedding моделей (Sentence-Transformers), возможность fine-tuning на специфичных данных",
+        "SQL + Pandas — обработка метаданных документов, логирование запросов и ответов для анализа",
+        "Docker + Docker Compose — контейнеризация ML-сервиса, Redis для кэширования, PostgreSQL для хранения метаданных",
+        "Kubernetes — развёртывание на кластере, автоскейлинг по нагрузке, health checks и graceful shutdown",
+        "AWS SageMaker / EC2 — хостинг модели, создание API endpoint, настройка мониторинга через CloudWatch",
+        "MLflow — логирование версий моделей, параметров retriever, метрик качества ответов (BLEU, ROUGE)",
+        "Коммуникация с бизнесом — демонстрация ROI (сокращение времени поиска на 80%), сбор feedback от пользователей для улучшения"
+      ]
+    }
+  },
+  "critic_result": {
+    "score_breakdown": {
+      "salary_market_match": {
+        "score": 25,
+        "reason": "норма"
+      },
+      "skills_consistency": {
+        "score": 24,
+        "reason": "soft_skills содержат абстрактные категории (Аналитическое мышление) вместо конкретных межличностных навыков — минус 1 балл"
+      },
+      "learning_path_quality": {
+        "score": 21,
+        "reason": "Path содержит глаголы действия (создаёшь, видишь, пишешь) вместо результатов обучения — минус 2 балла. Topics в Portfolio включают soft skills (Мониторинг и оптимизация) — минус 2 балла"
+      },
+      "portfolio_relevance": {
+        "score": 23,
+        "reason": "user_stories содержат описание действий (Загружаю, Задаю, Вижу) вместо чёткого формата 'делаю→вижу→результат' — минус 2 балла"
+      }
+    },
+    "quality_score": 93,
+    "quality_score_reason": "Зарплатные диапазоны корректны, план обучения структурирован логично, портфолио проект амбициозен. Основные проблемы: глаголы действия в path вместо результатов, soft skills недостаточно конкретны.",
+    "warnings": [
+      "Gap-анализ: quick_wins по 1 неделе каждый (Python, Pandas, SQL, PyTorch) нереалистичны для новичка — рекомендуй 2-3 недели на каждый блок",
+      "Portfolio проект SmartDocAssistant требует опыта с LLM-интеграциями и продакшн-инфраструктурой — слишком амбициозен для завершения за 30 дней Practice+Portfolio этапов",
+      "LangChain в frameworks отмечен как important, но в learning_path появляется только на этапе Portfolio (день 60+) — разрыв между важностью и временем введения"
+    ],
+    "is_consistent": true
+  }
+}

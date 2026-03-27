@@ -6,60 +6,52 @@ from core.models import CriticResult
 
 logger = logging.getLogger(__name__)
 
-SYSTEM_PROMPT = """Ты — строгий ревьюер карьерных отчётов.
-Твой ответ — ТОЛЬКО валидный JSON без markdown и пояснений.
+SYSTEM_PROMPT = BaseAgent.BASE_SYSTEM + """
+Ты — строгий ревьюер карьерных отчётов. Твоя задача — найти проблемы, а не похвалить.
+25/25 = идеально (редкость). 20-24 = норма. Оценка 95+ подозрительна.
+ 
+REASON формула: ТОЛЬКО проблемы + минус N баллов. Если проблем нет — пиши "норма".
+ЗАПРЕЩЕНО перечислять что правильно. Каждое предложение в reason должно содержать "минус" или "норма".
+ВАЖНО: если reason = "норма" — score обязан быть 25. Нельзя писать "норма" и ставить 24.
+Снижаешь балл — обязан написать конкретную причину с "минус N баллов".
+Пиши ТОЛЬКО о проблемах. Если всё хорошо — одно слово "норма". Не перечисляй что правильно.
+Плохо: "Junior Москва 80-150k — корректно. Middle 100-220k — норма. Lead remote max 9000 USD завышен — минус 1 балл"
+Хорошо: "Lead remote max 9000 USD завышен для рынка 2026 — минус 1 балл"
+ 
+КРИТЕРИИ (каждый 0-25, итого 100):
+ 
+1. salary_market_match (0-25): Junior min < 80? Remote max завышен? Регионы не 60-70%? Грейды пересекаются? Только нарушения.
 
-Оценивай по 4 критериям, каждый максимум 25 баллов (итого 100):
-- reason должен объяснять КОНКРЕТНО почему именно такой балл, а не общие слова
-- Плохо: "Портфолио хорошо демонстрирует навыки" — почему 24 а не 25?
-- Хорошо: "Портфолио покрывает 4 из 6 навыков skill_map, не использован CoreData и CocoaPods — минус 1 балл"
+2. skills_consistency (0-25): Меньше 3 языков? Declining = critical? soft_skills не межличностные? trend_reason без факта? Только нарушения.
 
-1. salary_market_match (0-25):
-   - 25: все грейды точно соответствуют рынку (±10%)
-   - 20-24: незначительные отклонения в 1-2 грейдах (±20%)
-   - 15-19: заметные отклонения, Junior или Senior явно завышены/занижены
-   - <15: цифры не соответствуют реальному рынку
+3. learning_path_quality (0-25): duration_days не сходится? Path содержит "понимаешь/изучаешь"? Topics содержат soft skills? Milestone не "Могу..."? Gap без деталей? Только нарушения.
 
-2. skills_consistency (0-25):
-   - 25: все навыки актуальны, declining не приоритизированы, категории правильные
-   - 20-24: 1-2 навыка спорных или не в той категории
-   - 15-19: есть противоречия (declining в приоритетах) или явно устаревшие технологии
-   - <15: серьёзные противоречия или нерелевантные навыки
-
-3. learning_path_quality (0-25):
-   - 25: сроки реалистичны, milestones измеримые ("Могу..."), path конкретный, проекты релевантны роли
-   - 20-24: 1-2 абстрактных milestone или шага
-   - 15-19: сроки нереальны или проекты не связаны с ролью
-   - <15: план абстрактный, milestones размытые, проекты универсальные
-   - Наличие платных ресурсов НЕ влияет на оценку
-
-4. portfolio_relevance (0-25):
-   - 25: проект использует 5+ навыков из skill_map, описание конкретное с функциями
-   - 20-24: покрывает 3-4 навыка, описание достаточно конкретное
-   - 15-19: покрывает 2-3 навыка или описание абстрактное
-   - <15: проект не связан с ролью или навыки не из skill_map
-
-quality_score = сумма всех четырёх баллов.
-
+4. portfolio_relevance (0-25): Название абстрактное? Problem не боль? user_stories не "делаю→вижу"? Пустые поля? Только нарушения.
+ 
+WARNINGS: только реальные проблемы, максимум 3-5. Одно предложение без конкретных дней.
+Плохо: "SwiftUI основы — 1-2 недели слишком оптимистично, реальный срок 2-3 недели"
+Хорошо: "Gap-анализ: quick_wins содержат нереалистичные сроки для новичка, предложи реалистичные по твоему мнению и среднему"
+Не добавляй в warnings: отсутствие GitHub ссылок, метрики покрытия навыков, детали тестов — это не критичные проблемы.
+ 
+is_consistent: false если score < 60.
+ 
 Структура:
 {
   "critic_result": {
     "score_breakdown": {
-      "salary_market_match": {"score": 20, "reason": "Junior Москва немного завышен"},
-      "skills_consistency": {"score": 24, "reason": "Все навыки актуальны"},
-      "learning_path_quality": {"score": 18, "reason": "Ресурсы без реальных URL"},
-      "portfolio_relevance": {"score": 24, "reason": "Покрывает 4 навыка из skill_map"}
-    }
+      "salary_market_match": {"score": 22, "reason": "..."},
+      "skills_consistency": {"score": 23, "reason": "..."},
+      "learning_path_quality": {"score": 19, "reason": "..."},
+      "portfolio_relevance": {"score": 21, "reason": "..."}
+    },
     "quality_score": 85,
-    "quality_score_reason": "Зарплаты немного завышены для Junior. План обучения реалистичный, ресурсы актуальные. Портфолио хорошо покрывает навыки.",
-    "warnings": ["Junior Москва max 200 тыс. выглядит завышенно для начального уровня"],
+    "quality_score_reason": "...",
+    "warnings": ["..."],
     "is_consistent": true
   }
 }
 
-Правила:
-- warnings только если есть реальная проблема — declining-навык в приоритетах, пустые поля, нереальные зарплаты
-- is_consistent: false если quality_score < 60 или критические противоречия
+JSON должен содержать все поля: score_breakdown, quality_score, quality_score_reason: только главные проблемы через запятую. Без похвалы. Максимум 2 предложения., warnings (список строк), is_consistent (bool)
 """
 
 
@@ -69,22 +61,69 @@ class CriticAgent(BaseAgent):
     def __init__(self, llm_client: LLMClient):
         self.llm = llm_client
 
+    def _compress_for_critic(self, context: dict) -> str:
+        """Сжимает отчёт для критика: убирает trend_reason, ресурсы, описания проектов."""
+        role = context["role"]
+        skill_map = context["skill_map"]
+        salary = context["salary_table"]
+        lp = context["learning_path"]
+
+        # Навыки — компактно
+        skills_lines = []
+        for cat, skills in skill_map.items():
+            items = [f"{s['name']} ({s['level']}, {s['trend']})" for s in skills]
+            skills_lines.append(f"{cat}: {', '.join(items)}")
+
+        # Зарплаты — без indent
+        salary_compact = json.dumps(salary, ensure_ascii=False, separators=(',', ':'))
+
+        # Learning path — только ключевое
+        phases_lines = []
+        for p in lp["phases"]:
+            phases_lines.append(
+                f"--- {p['name']} ({p['duration_days']}д) ---\n"
+                f"topics: {p['topics']}\n"
+                f"path: {p['path']}\n"
+                f"milestone: {p['milestone']}\n"
+                f"projects: {[pr['name'] + ': ' + pr['description'] for pr in p['practice_projects']]}"
+            )
+
+        # Gap analysis
+        gap = lp.get("gap_analysis", {})
+        gap_text = f"quick_wins: {gap.get('quick_wins', [])}\nlong_term: {gap.get('long_term', [])}"
+
+        # Portfolio
+        portfolio = json.dumps(lp.get("portfolio_project", {}), ensure_ascii=False, separators=(',', ':'))
+
+        return f"""Роль: {role}
+
+        Навыки:
+        {chr(10).join(skills_lines)}
+    
+        Зарплаты:
+        {salary_compact}
+    
+        План обучения:
+        {chr(10).join(phases_lines)}
+    
+        Gap-анализ:
+        {gap_text}
+    
+        Портфолио:
+        {portfolio}"""
+
     def run(self, context: dict) -> dict:
         role = context["role"]
         logger.info("Проверяю отчёт для роли: %s", role)
 
-        report_data = {
-            "role": role,
-            "skill_map": context.get("skill_map"),
-            "salary_table": context.get("salary_table"),
-            "learning_path": context.get("learning_path"),
-        }
+        compressed = self._compress_for_critic(context)
 
-        user_prompt = f"""Проверь карьерный отчёт для "{role}":
+        user_prompt = f"""Проверь карьерный отчёт для "{context['role']}":
 
-{json.dumps(report_data, ensure_ascii=False, indent=2)}
+        {compressed}
 
-Найди противоречия, оцени качество. Верни ТОЛЬКО JSON."""
+        Найди только реальные противоречия. Не придирайся к мелочам.
+        Верни ТОЛЬКО JSON. JSON должен содержать все поля: score_breakdown, quality_score, quality_score_reason: только главные проблемы через запятую. Без похвалы. Максимум 2 предложения., warnings (список строк, максимум 5), is_consistent (bool)."""
 
         raw = self.llm.ask_json(SYSTEM_PROMPT, user_prompt)
         critic_result = CriticResult(**raw["critic_result"])
