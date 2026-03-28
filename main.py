@@ -8,6 +8,7 @@ from agents.career_advisor import CareerAdvisorAgent
 from agents.critic import CriticAgent
 from agents.market_analyst import MarketAnalystAgent
 from agents.salary_estimator import SalaryEstimatorAgent
+from agents.stats_collector import StatsCollectorAgent
 from core.llm_client import LLMClient
 from core.pipeline import Pipeline
 from core.role_clarifier import clarify_role
@@ -44,6 +45,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output", default=".", help="Директория для отчётов")
     parser.add_argument("--verbose", action="store_true", help="Подробное логирование")
     parser.add_argument("--log-prompts", action="store_true", help="Логировать промпты и ответы LLM")
+    parser.add_argument("--stats", default="stats.json", help="Путь к файлу статистики")
     return parser.parse_args()
 
 
@@ -62,11 +64,12 @@ def main() -> None:
         logger.info("Старт анализа: %s", role)
 
         pipeline = (
-            Pipeline(role=args.role)
+            Pipeline(role=args.role, llm_client=llm)
             .add_agent(MarketAnalystAgent(llm))
             .add_agent(SalaryEstimatorAgent(llm))
             .add_agent(CareerAdvisorAgent(llm))
             .add_agent(CriticAgent(llm))
+            .add_agent(StatsCollectorAgent(llm, stats_path=args.stats))
         )
 
         context = pipeline.run()

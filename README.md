@@ -15,35 +15,41 @@ career-analyzer/
 ├── agents/
 │   ├── base_agent.py          # Абстрактный BaseAgent (ABC)
 │   ├── market_analyst.py      # Агент 1: карта навыков
-│   ├── salary_estimator.py    # Агент 2: зарплатная таблица
+│   ├── salary_estimator.py    # Агент 2: зарплатная таблица + hh.ru API
 │   ├── career_advisor.py      # Агент 3: план обучения
-│   └── critic.py              # Агент 4: верификация
+│   ├── critic.py              # Агент 4: верификация
+│   └── stats_collector.py     # Агент 5: статистика запусков
 ├── core/
 │   ├── pipeline.py            # Оркестратор агентов
-│   ├── llm_client.py          # Обёртка над Anthropic SDK (retry, валидация JSON)
-│   └── models.py              # Pydantic-схемы выходных данных
+│   ├── llm_client.py          # Fallback-цепочка провайдеров, retry, трекинг токенов
+│   ├── hh_client.py           # Клиент hh.ru API
+│   ├── models.py              # Pydantic-схемы выходных данных
+│   └── role_clarifier.py      # Уточнение неоднозначных ролей
 ├── output/
 │   └── report_writer.py       # Сохранение report.json и report.md
 ├── examples/
 │   ├── TC01/                  # Backend Python Developer
 │   ├── TC02/                  # ML Engineer
 │   └── TC03/                  # iOS Developer (Swift)
+├── analytics.ipynb            # Jupyter notebook с графиками статистики
+├── stats.json                 # История запусков (создаётся автоматически)
 ├── main.py                    # Точка входа, CLI
 ├── Dockerfile
 ├── docker-compose.yml
-├── requirements.txt
 └── .env.example
 ```
 
 ## Зависимости
 
-| Библиотека      | Версия | Зачем                             |
-|-----------------|--------|-----------------------------------|
-| `Python`        | ≥3.12  |                                   |
-| `groq`          | ≥1.1.1 | Клиент для Groq API               |
-| `pydantic`      | ≥2.0   | Валидация выходных данных агентов |
-| `python-dotenv` | ≥1.0   | Загрузка `.env`                   |
-| `requests`      | ≥2.31  | Запросы к hh.ru API               |
+| Библиотека      | Версия  | Зачем                                      |
+|-----------------|---------|---------------------------------------------|
+| `Python`        | ≥3.12   |                                             |
+| `openai`        | ≥1.0.0  | OpenAI-совместимый клиент (Groq, OpenRouter)|
+| `pydantic`      | ≥2.0    | Валидация выходных данных агентов           |
+| `python-dotenv` | ≥1.0    | Загрузка `.env`                             |
+| `requests`      | ≥2.31   | Запросы к hh.ru API                         |
+| `jupyter`       | —       | Аналитический notebook (опционально)        |
+| `matplotlib`    | —       | Графики статистики (опционально)            |
 
 ## Архитектура
 
@@ -55,7 +61,8 @@ main.py
         ├── MarketAnalystAgent   → skill_map
         ├── SalaryEstimatorAgent → salary_table
         ├── CareerAdvisorAgent   → learning_path
-        └── CriticAgent         → critic_result
+        ├── CriticAgent         → critic_result
+        └── StatsCollectorAgent → agent_statistics
 ```
 
 ### Почему Pipeline Pattern
@@ -83,7 +90,8 @@ pipeline = (
     .add_agent(SalaryEstimatorAgent(llm))
     .add_agent(CareerAdvisorAgent(llm))
     .add_agent(CriticAgent(llm))
-    .add_agent(NewAgent(llm))  # ← новый агент
+    .add_agent(StatsCollectorAgent(llm, stats_path=args.stats))
+    .add_agent(NewAgent(llm)) # ← новый агент
 )
 ```
 
@@ -120,6 +128,13 @@ pipeline = (
 **Выход:** `critic_result`
 
 Проверяет согласованность отчёта: соответствие зарплат навыкам, противоречия между трендами и приоритетами обучения, полноту данных. Выставляет `quality_score` (0–100) и `is_consistent`.
+
+### Агент 5 — Stats Collector (`agents/stats_collector.py`)
+
+**Вход:** полный контекст + служебные поля `_agent_timings`, `_agent_tokens`
+**Выход:** `run_stats`, `stats_summary`
+
+Собирает статистику каждого запуска: время и токены per-агент, quality_score, успех/провал. Накапливает историю в `stats.json` и считает агрегаты по всем запускам — среднее время, самая дорогая роль по токенам, процент успешных запусков.
 
 
 ---
@@ -184,6 +199,7 @@ docker compose run --rm career-analyser --role "Backend Python Developer"
 |-----------------|--------------|---------------------------------------------------------------|
 | `--role`        | ДА           | Название специальности                                        |
 | `--output`      | НЕТ          | Директория для отчётов (по умолчанию: `.`)                    |
+| `--stats`       | НЕТ          | Путь к файлу статистики (по умолчанию: `stats.json`)          |
 | `--verbose`     | НЕТ          | Подробное логирование (DEBUG)                                 |
 | `--log-prompts` | НЕТ          | Вывод отправленных промптов и полученных ответов от нейросети |
 
@@ -216,6 +232,39 @@ uv run main.py --role "Backend Python Developer" --output ./results --verbose --
 }
 ```
 
+### stats.json
+
+История всех запусков. Создаётся автоматически при первом запуске.
+```json
+{
+  "role": "iOS Developer (Swift)",
+  "success": true,
+  "total_elapsed_sec": 53.79,
+  "agent_timings_sec": {
+    "market_analyst": 6.19,
+    "salary_estimator": 8.73,
+    "career_advisor": 31.32,
+    "critic": 7.55
+  },
+  "agent_tokens": {
+    "market_analyst": 3200,
+    "salary_estimator": 4100,
+    "career_advisor": 8200,
+    "critic": 2515
+  },
+  "tokens": {"total_tokens": 18015},
+  "quality_score": 92
+}
+```
+
+### Графики
+```bash
+uv add jupyter matplotlib
+uv run jupyter notebook analytics.ipynb
+```
+
+Открой ссылку из терминала в браузере. Доступны графики: время и токены по агентам, quality score по ролям, success rate, медианное время агентов по всем запускам.
+
 ### report.md
 
 Отчёт с анализом указанной позиции для пользователя и структурированным планом обучения.
@@ -229,6 +278,24 @@ uv run main.py --role "Backend Python Developer" --output ./results --verbose --
 | `examples/TC01/` | Backend Python Developer 
 | `examples/TC02/` | ML Engineer 
 | `examples/TC03/` | iOS Developer (Swift)
+
+## Сколько времени заняла разработка
+
+**Базовая реализация (3–4 часа)**
+Проектирование архитектуры, реализация четырёх агентов, Pipeline, Pydantic-модели, базовый CLI и сохранение отчётов.
+
+**Полировка промптов и тестирование (3–4 часа)**
+Итеративная правка промптов всех агентов: устранение галлюцинаций, добавление примеров, ограничений на количество элементов, правила для критика. Прогон на 3–5 ролях, фиксация PROBLEMS.md.
+
+**Выбор модели (1–2 часа)**
+Тестирование бесплатных моделей: DeepSeek R1, Llama 3.3 70B через Groq и OpenRouter. Бесплатные модели нестабильно следуют структуре JSON, часто пропускают поля и галлюцинируют в промптах с большим контекстом. После сравнения качества вывода и стабильности остановились на Claude Haiku 4.5 — модель точнее следует инструкциям, стабильно возвращает валидный JSON и лучше держит ограничения на количество элементов.
+
+**Инфраструктура и интеграции (4–6 часов)**
+Fallback-цепочка провайдеров (Groq + OpenRouter), динамическая ротация ключей, retry при невалидном JSON, интеграция hh.ru API для реальных зарплат, агент статистики, трекинг токенов и времени per-агент, Docker, аналитический notebook.
+
+**Итого: ~10–14 часов**
+
+Основная сложность — не код, а промпт-инжиниринг: модели игнорируют ограничения, копируют примеры дословно, пропускают поля. Каждое правило в промпте — результат реального бага на реальном запуске.
 
 ## Идеи для развития
 

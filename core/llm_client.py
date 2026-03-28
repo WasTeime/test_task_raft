@@ -53,6 +53,9 @@ class LLMClient:
         self.max_tokens = int(os.getenv("MAX_TOKENS", "4096"))
         self.max_retries = int(os.getenv("MAX_RETRIES", "3"))
 
+        # Накопленная статистика токенов за всё время жизни клиента
+        self.usage_stats: list[dict] = []
+
         chain = _build_fallback_chain()
         if not chain:
             raise ValueError("Нет провайдеров. Добавь GROQ_MODELS + GROQ_KEYS в .env")
@@ -68,6 +71,17 @@ class LLMClient:
         logger.info("Fallback-цепочка: %d комбинаций", len(self.clients))
         for c in self.clients:
             logger.info("  → %s", c["name"])
+
+    def get_total_usage(self) -> dict:
+        """Возвращает суммарную статистику токенов по всем вызовам."""
+        if not self.usage_stats:
+            return {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0, "calls": 0}
+        return {
+            "input_tokens": sum(s["input_tokens"] for s in self.usage_stats),
+            "output_tokens": sum(s["output_tokens"] for s in self.usage_stats),
+            "total_tokens": sum(s["total_tokens"] for s in self.usage_stats),
+            "calls": len(self.usage_stats),
+        }
 
     def ask(self, system_prompt: str, user_prompt: str) -> str:
         if self.log_prompts:
@@ -95,6 +109,13 @@ class LLMClient:
 
                 usage = message.usage
                 if usage:
+                    self.usage_stats.append({
+                        "provider": provider["name"],
+                        "input_tokens": usage.prompt_tokens,
+                        "output_tokens": usage.completion_tokens,
+                        "total_tokens": usage.total_tokens,
+                        "elapsed_sec": round(elapsed, 2),
+                    })
                     logger.info(
                         "[%s] Токены: %d input + %d output = %d total (%.2f сек)",
                         provider["name"],

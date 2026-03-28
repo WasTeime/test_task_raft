@@ -1,0 +1,262 @@
+[
+  {
+    "role": "Python Backend Developer",
+    "generated_at": "2026-03-27T09:53:31.033250+00:00",
+    "success": true,
+    "total_elapsed_sec": 55.56,
+    "agent_timings_sec": {
+      "market_analyst": 7.22,
+      "salary_estimator": 9.2,
+      "career_advisor": 30.27,
+      "critic": 8.87
+    },
+    "agent_tokens": {
+      "market_analyst": 1792,
+      "salary_estimator": 2292,
+      "career_advisor": 7357,
+      "critic": 6156
+    },
+    "tokens": {
+      "input_tokens": 10520,
+      "output_tokens": 7300,
+      "total_tokens": 17820,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-03-27T09:57:32.030357+00:00",
+    "success": true,
+    "total_elapsed_sec": 55.9,
+    "agent_timings_sec": {
+      "market_analyst": 10.12,
+      "salary_estimator": 8.22,
+      "career_advisor": 30.3,
+      "critic": 7.26
+    },
+    "agent_tokens": {
+      "market_analyst": 1761,
+      "salary_estimator": 2272,
+      "career_advisor": 7313,
+      "critic": 6147
+    },
+    "tokens": {
+      "input_tokens": 10469,
+      "output_tokens": 7246,
+      "total_tokens": 17715,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-27T10:13:10.902593+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.05,
+    "agent_timings_sec": {
+      "market_analyst": 9.75,
+      "salary_estimator": 10.55,
+      "career_advisor": 30.33,
+      "critic": 5.42
+    },
+    "agent_tokens": {
+      "market_analyst": 1996,
+      "salary_estimator": 2323,
+      "career_advisor": 7368,
+      "critic": 6043
+    },
+    "tokens": {
+      "input_tokens": 10571,
+      "output_tokens": 7382,
+      "total_tokens": 17953,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "Frontend Developer (React)",
+    "generated_at": "2026-03-27T10:14:40.594674+00:00",
+    "success": true,
+    "total_elapsed_sec": 53.42,
+    "agent_timings_sec": {
+      "market_analyst": 6.69,
+      "salary_estimator": 9.24,
+      "career_advisor": 31.39,
+      "critic": 6.1
+    },
+    "agent_tokens": {
+      "market_analyst": 1850,
+      "salary_estimator": 2345,
+      "career_advisor": 7308,
+      "critic": 5956
+    },
+    "tokens": {
+      "input_tokens": 10497,
+      "output_tokens": 7186,
+      "total_tokens": 17683,
+      "calls": 5
+    },
+    "quality_score": 94,
+    "is_consistent": true
+  },
+  {
+    "role": "DevOps Engineer",
+    "generated_at": "2026-03-27T10:16:10.300409+00:00",
+    "success": true,
+    "total_elapsed_sec": 65.52,
+    "agent_timings_sec": {
+      "market_analyst": 7.96,
+      "salary_estimator": 15.93,
+      "career_advisor": 34.92,
+      "critic": 6.71
+    },
+    "agent_tokens": {
+      "market_analyst": 1852,
+      "salary_estimator": 1956,
+      "career_advisor": 7929,
+      "critic": 6730
+    },
+    "tokens": {
+      "input_tokens": 10715,
+      "output_tokens": 7976,
+      "total_tokens": 18691,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "Android Developer (Kotlin)",
+    "generated_at": "2026-03-27T10:19:03.819845+00:00",
+    "success": true,
+    "total_elapsed_sec": 55.06,
+    "agent_timings_sec": {
+      "market_analyst": 9.81,
+      "salary_estimator": 8.25,
+      "career_advisor": 31.65,
+      "critic": 5.35
+    },
+    "agent_tokens": {
+      "market_analyst": 1761,
+      "salary_estimator": 2328,
+      "career_advisor": 7255,
+      "critic": 5964
+    },
+    "tokens": {
+      "input_tokens": 10392,
+      "output_tokens": 7141,
+      "total_tokens": 17533,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "Data Engineer",
+    "generated_at": "2026-03-27T10:20:38.598254+00:00",
+    "success": true,
+    "total_elapsed_sec": 53.18,
+    "agent_timings_sec": {
+      "market_analyst": 8.29,
+      "salary_estimator": 9.44,
+      "career_advisor": 29.55,
+      "critic": 5.9
+    },
+    "agent_tokens": {
+      "market_analyst": 1781,
+      "salary_estimator": 2337,
+      "career_advisor": 7289,
+      "critic": 6125
+    },
+    "tokens": {
+      "input_tokens": 10516,
+      "output_tokens": 7238,
+      "total_tokens": 17754,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "QA Automation Engineer",
+    "generated_at": "2026-03-27T10:22:18.061462+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.12,
+    "agent_timings_sec": {
+      "market_analyst": 7.87,
+      "salary_estimator": 10.77,
+      "career_advisor": 30.34,
+      "critic": 7.14
+    },
+    "agent_tokens": {
+      "market_analyst": 1834,
+      "salary_estimator": 1931,
+      "career_advisor": 7274,
+      "critic": 5940
+    },
+    "tokens": {
+      "input_tokens": 9928,
+      "output_tokens": 7276,
+      "total_tokens": 17204,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Golang Backend Developer",
+    "generated_at": "2026-03-27T10:23:29.113665+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.83,
+    "agent_timings_sec": {
+      "market_analyst": 6.29,
+      "salary_estimator": 15.82,
+      "career_advisor": 26.67,
+      "critic": 8.05
+    },
+    "agent_tokens": {
+      "market_analyst": 1743,
+      "salary_estimator": 2316,
+      "career_advisor": 7007,
+      "critic": 6012
+    },
+    "tokens": {
+      "input_tokens": 10279,
+      "output_tokens": 7023,
+      "total_tokens": 17302,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "Product Manager (IT)",
+    "generated_at": "2026-03-27T10:24:39.458660+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.53,
+    "agent_timings_sec": {
+      "market_analyst": 6.86,
+      "salary_estimator": 10.45,
+      "career_advisor": 31.19,
+      "critic": 8.03
+    },
+    "agent_tokens": {
+      "market_analyst": 1726,
+      "salary_estimator": 2269,
+      "career_advisor": 7253,
+      "critic": 6139
+    },
+    "tokens": {
+      "input_tokens": 10406,
+      "output_tokens": 7205,
+      "total_tokens": 17611,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  }
+]
