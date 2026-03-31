@@ -26,6 +26,8 @@ SCORE_BREAKDOWN_LABELS = {
 class ReportWriter:
     def __init__(self, output_dir: str = "."):
         self.output_dir = Path(output_dir)
+        if self.output_dir.exists() and not self.output_dir.is_dir():
+            self.output_dir.unlink()
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def save(self, context: dict) -> tuple[Path, Path]:

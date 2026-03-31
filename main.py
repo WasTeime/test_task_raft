@@ -11,7 +11,7 @@ from agents.salary_estimator import SalaryEstimatorAgent
 from agents.stats_collector import StatsCollectorAgent
 from core.llm_client import LLMClient
 from core.pipeline import Pipeline
-from core.role_clarifier import clarify_role
+from core.role_clarifier import clarify_role, clarify_goal, clarify_skill_level
 from output.report_writer import ReportWriter
 
 
@@ -63,8 +63,11 @@ def main() -> None:
         role = clarify_role(llm, args.role)
         logger.info("Старт анализа: %s", role)
 
+        skill_level = clarify_skill_level()
+        goal = clarify_goal()
+
         pipeline = (
-            Pipeline(role=args.role, llm_client=llm)
+            Pipeline(role=role, llm_client=llm, extra_context={"skill_level": skill_level, "goal": goal})
             .add_agent(MarketAnalystAgent(llm))
             .add_agent(SalaryEstimatorAgent(llm))
             .add_agent(CareerAdvisorAgent(llm))

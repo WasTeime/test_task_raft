@@ -14,6 +14,10 @@ class BaseAgent(ABC):
     ENUM-ЗНАЧЕНИЯ (используй строго эти):
     - level: "critical" | "important" | "nice-to-have"
     - trend: "growing" | "stable" | "declining"
+    
+    ═══ ЯЗЫК ═══
+    Весь текст только на русском. Названия технологий не переводи (Swift, Core Data, Django).
+    Абстрактные термины заменяй конкретными: не "хранилище" — а "Core Data" или "SQLite", не "сервер" — а "Django backend" или "FastAPI сервис".
     """
 
     @abstractmethod

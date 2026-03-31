@@ -24,7 +24,8 @@ REASON формула: ТОЛЬКО проблемы + минус N баллов
 
 2. skills_consistency (0-25): Меньше 3 языков? Declining = critical? soft_skills не межличностные? trend_reason без факта? Только нарушения.
 
-3. learning_path_quality (0-25): duration_days не сходится? Path содержит "понимаешь/изучаешь"? Topics содержат soft skills? Milestone не "Могу..."? Gap без деталей? Только нарушения.
+3. learning_path_quality (0-25): duration_days не сходится? Path содержит "понимаешь/изучаешь"? Topics содержат soft skills? Milestone не "Могу..."? Gap без деталей? Сроки quick_wins нереалистичны для указанного уровня пользователя? Только нарушения.
+ВАЖНО: если пользователь уже знает язык или смежный стек — не штрафуй за короткие сроки на базовые темы.
 
 4. portfolio_relevance (0-25): Название абстрактное? Problem не боль? user_stories не "делаю→вижу"? Пустые поля? Только нарушения.
  
@@ -95,7 +96,11 @@ class CriticAgent(BaseAgent):
         # Portfolio
         portfolio = json.dumps(lp.get("portfolio_project", {}), ensure_ascii=False, separators=(',', ':'))
 
+        skill_level = context.get("skill_level", "")
+        skill_level_block = f"\nУровень пользователя: {skill_level}\n" if skill_level else ""
+
         return f"""Роль: {role}
+        {skill_level_block}
 
         Навыки:
         {chr(10).join(skills_lines)}

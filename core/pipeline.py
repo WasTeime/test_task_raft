@@ -8,10 +8,11 @@ logger = logging.getLogger(__name__)
 
 
 class Pipeline:
-    def __init__(self, role: str, llm_client: LLMClient):
+    def __init__(self, role: str, llm_client: LLMClient, extra_context: dict = None):
         self.role = role
         self.llm_client = llm_client
         self._agents: list[BaseAgent] = []
+        self._extra_context = extra_context or {}
         logger.info("Pipeline создан для роли: %s", role)
 
     def add_agent(self, agent: BaseAgent) -> "Pipeline":
@@ -32,6 +33,7 @@ class Pipeline:
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "_agent_timings": {},
             "_agent_tokens": {},
+            **self._extra_context,
         }
 
         logger.info("=" * 50)
