@@ -258,5 +258,941 @@
     },
     "quality_score": 93,
     "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-28T22:47:48.492837+00:00",
+    "success": true,
+    "total_elapsed_sec": 63.38,
+    "agent_timings_sec": {
+      "market_analyst": 9.0,
+      "salary_estimator": 14.15,
+      "career_advisor": 34.47,
+      "critic": 5.76
+    },
+    "agent_tokens": {
+      "market_analyst": 2007,
+      "salary_estimator": 2296,
+      "career_advisor": 8183,
+      "critic": 6441
+    },
+    "tokens": {
+      "input_tokens": 11366,
+      "output_tokens": 7784,
+      "total_tokens": 19150,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-28T22:51:04.954367+00:00",
+    "success": true,
+    "total_elapsed_sec": 72.49,
+    "agent_timings_sec": {
+      "market_analyst": 10.05,
+      "salary_estimator": 9.84,
+      "career_advisor": 45.93,
+      "critic": 6.67
+    },
+    "agent_tokens": {
+      "market_analyst": 1734,
+      "salary_estimator": 2249,
+      "career_advisor": 7287,
+      "critic": 5640
+    },
+    "tokens": {
+      "input_tokens": 10380,
+      "output_tokens": 6753,
+      "total_tokens": 17133,
+      "calls": 5
+    },
+    "quality_score": 94,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-28T22:52:58.089872+00:00",
+    "success": true,
+    "total_elapsed_sec": 62.2,
+    "agent_timings_sec": {
+      "market_analyst": 8.45,
+      "salary_estimator": 13.47,
+      "career_advisor": 35.2,
+      "critic": 5.08
+    },
+    "agent_tokens": {
+      "market_analyst": 2059,
+      "salary_estimator": 2346,
+      "career_advisor": 8583,
+      "critic": 6748
+    },
+    "tokens": {
+      "input_tokens": 11610,
+      "output_tokens": 8349,
+      "total_tokens": 19959,
+      "calls": 5
+    },
+    "quality_score": 94,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-28T23:02:28.081698+00:00",
+    "success": true,
+    "total_elapsed_sec": 58.41,
+    "agent_timings_sec": {
+      "market_analyst": 5.52,
+      "salary_estimator": 13.38,
+      "career_advisor": 33.3,
+      "critic": 6.21
+    },
+    "agent_tokens": {
+      "market_analyst": 1744,
+      "salary_estimator": 2264,
+      "career_advisor": 8437,
+      "critic": 6501
+    },
+    "tokens": {
+      "input_tokens": 11549,
+      "output_tokens": 7620,
+      "total_tokens": 19169,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-29T02:47:24.957629+00:00",
+    "success": true,
+    "total_elapsed_sec": 50.24,
+    "agent_timings_sec": {
+      "market_analyst": 6.91,
+      "salary_estimator": 7.9,
+      "career_advisor": 29.17,
+      "critic": 6.26
+    },
+    "agent_tokens": {
+      "market_analyst": 1719,
+      "salary_estimator": 2278,
+      "career_advisor": 7912,
+      "critic": 5907
+    },
+    "tokens": {
+      "input_tokens": 11003,
+      "output_tokens": 7038,
+      "total_tokens": 18041,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-29T02:53:04.553343+00:00",
+    "success": true,
+    "total_elapsed_sec": 44.56,
+    "agent_timings_sec": {
+      "market_analyst": 6.27,
+      "salary_estimator": 7.65,
+      "career_advisor": 25.69,
+      "critic": 4.95
+    },
+    "agent_tokens": {
+      "market_analyst": 1671,
+      "salary_estimator": 2293,
+      "career_advisor": 7586,
+      "critic": 5512
+    },
+    "tokens": {
+      "input_tokens": 10809,
+      "output_tokens": 6478,
+      "total_tokens": 17287,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-03-29T02:58:47.940091+00:00",
+    "success": true,
+    "total_elapsed_sec": 49.54,
+    "agent_timings_sec": {
+      "market_analyst": 7.76,
+      "salary_estimator": 8.04,
+      "career_advisor": 27.31,
+      "critic": 6.43
+    },
+    "agent_tokens": {
+      "market_analyst": 1827,
+      "salary_estimator": 2288,
+      "career_advisor": 7959,
+      "critic": 6217
+    },
+    "tokens": {
+      "input_tokens": 11365,
+      "output_tokens": 7148,
+      "total_tokens": 18513,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Software engeenere",
+    "generated_at": "2026-03-29T14:47:54.875939+00:00",
+    "success": true,
+    "total_elapsed_sec": 51.36,
+    "agent_timings_sec": {
+      "market_analyst": 10.02,
+      "salary_estimator": 7.27,
+      "career_advisor": 26.76,
+      "critic": 7.31
+    },
+    "agent_tokens": {
+      "market_analyst": 1891,
+      "salary_estimator": 1957,
+      "career_advisor": 8329,
+      "critic": 6636
+    },
+    "tokens": {
+      "input_tokens": 11455,
+      "output_tokens": 7583,
+      "total_tokens": 19038,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Engineer (Python)",
+    "generated_at": "2026-03-31T15:34:06.396476+00:00",
+    "success": true,
+    "total_elapsed_sec": 46.63,
+    "agent_timings_sec": {
+      "market_analyst": 9.32,
+      "salary_estimator": 7.15,
+      "career_advisor": 22.91,
+      "critic": 7.25
+    },
+    "agent_tokens": {
+      "market_analyst": 1970,
+      "salary_estimator": 2367,
+      "career_advisor": 7547,
+      "critic": 5617
+    },
+    "tokens": {
+      "input_tokens": 11402,
+      "output_tokens": 6428,
+      "total_tokens": 17830,
+      "calls": 5
+    },
+    "quality_score": 71,
+    "is_consistent": false
+  },
+  {
+    "role": "Backend Developer (Python)",
+    "generated_at": "2026-03-31T15:43:19.802419+00:00",
+    "success": true,
+    "total_elapsed_sec": 60.39,
+    "agent_timings_sec": {
+      "market_analyst": 8.62,
+      "salary_estimator": 10.99,
+      "career_advisor": 32.91,
+      "critic": 7.87
+    },
+    "agent_tokens": {
+      "market_analyst": 2106,
+      "salary_estimator": 2459,
+      "career_advisor": 8888,
+      "critic": 6975
+    },
+    "tokens": {
+      "input_tokens": 12685,
+      "output_tokens": 8134,
+      "total_tokens": 20819,
+      "calls": 5
+    },
+    "quality_score": 80,
+    "is_consistent": false
+  },
+  {
+    "role": "Backend Developer (Python)",
+    "generated_at": "2026-03-31T15:49:40.677579+00:00",
+    "success": true,
+    "total_elapsed_sec": 53.12,
+    "agent_timings_sec": {
+      "market_analyst": 9.1,
+      "salary_estimator": 11.46,
+      "career_advisor": 26.74,
+      "critic": 5.82
+    },
+    "agent_tokens": {
+      "market_analyst": 2124,
+      "salary_estimator": 2075,
+      "career_advisor": 7910,
+      "critic": 5811
+    },
+    "tokens": {
+      "input_tokens": 11331,
+      "output_tokens": 6979,
+      "total_tokens": 18310,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T15:53:01.324767+00:00",
+    "success": true,
+    "total_elapsed_sec": 84.56,
+    "agent_timings_sec": {
+      "market_analyst": 9.79,
+      "salary_estimator": 12.14,
+      "career_advisor": 56.66,
+      "critic": 5.97
+    },
+    "agent_tokens": {
+      "market_analyst": 2224,
+      "salary_estimator": 2087,
+      "career_advisor": 8058,
+      "critic": 5940
+    },
+    "tokens": {
+      "input_tokens": 11430,
+      "output_tokens": 7220,
+      "total_tokens": 18650,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T16:01:23.612118+00:00",
+    "success": true,
+    "total_elapsed_sec": 52.04,
+    "agent_timings_sec": {
+      "market_analyst": 7.22,
+      "salary_estimator": 7.2,
+      "career_advisor": 30.2,
+      "critic": 7.42
+    },
+    "agent_tokens": {
+      "market_analyst": 1805,
+      "salary_estimator": 2449,
+      "career_advisor": 7869,
+      "critic": 6160
+    },
+    "tokens": {
+      "input_tokens": 11802,
+      "output_tokens": 6824,
+      "total_tokens": 18626,
+      "calls": 5
+    },
+    "quality_score": 89,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T16:07:22.149243+00:00",
+    "success": true,
+    "total_elapsed_sec": 52.8,
+    "agent_timings_sec": {
+      "market_analyst": 6.67,
+      "salary_estimator": 7.71,
+      "career_advisor": 33.53,
+      "critic": 4.89
+    },
+    "agent_tokens": {
+      "market_analyst": 1781,
+      "salary_estimator": 2377,
+      "career_advisor": 7321,
+      "critic": 6921
+    },
+    "tokens": {
+      "input_tokens": 10881,
+      "output_tokens": 7862,
+      "total_tokens": 18743,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T16:10:52.234666+00:00",
+    "success": true,
+    "total_elapsed_sec": 57.61,
+    "agent_timings_sec": {
+      "market_analyst": 7.05,
+      "salary_estimator": 7.52,
+      "career_advisor": 35.43,
+      "critic": 7.61
+    },
+    "agent_tokens": {
+      "market_analyst": 1844,
+      "salary_estimator": 2405,
+      "career_advisor": 7132,
+      "critic": 7057
+    },
+    "tokens": {
+      "input_tokens": 10906,
+      "output_tokens": 7875,
+      "total_tokens": 18781,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T16:17:47.931718+00:00",
+    "success": true,
+    "total_elapsed_sec": 58.25,
+    "agent_timings_sec": {
+      "market_analyst": 8.27,
+      "salary_estimator": 8.8,
+      "career_advisor": 36.19,
+      "critic": 4.99
+    },
+    "agent_tokens": {
+      "market_analyst": 1909,
+      "salary_estimator": 2409,
+      "career_advisor": 7451,
+      "critic": 7071
+    },
+    "tokens": {
+      "input_tokens": 11166,
+      "output_tokens": 8017,
+      "total_tokens": 19183,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T16:27:03.792521+00:00",
+    "success": true,
+    "total_elapsed_sec": 86.82,
+    "agent_timings_sec": {
+      "market_analyst": 11.49,
+      "salary_estimator": 22.24,
+      "career_advisor": 47.74,
+      "critic": 5.35
+    },
+    "agent_tokens": {
+      "market_analyst": 1896,
+      "salary_estimator": 2418,
+      "career_advisor": 7162,
+      "critic": 6783
+    },
+    "tokens": {
+      "input_tokens": 10989,
+      "output_tokens": 7611,
+      "total_tokens": 18600,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T19:18:17.619149+00:00",
+    "success": true,
+    "total_elapsed_sec": 60.32,
+    "agent_timings_sec": {
+      "market_analyst": 10.25,
+      "salary_estimator": 9.11,
+      "career_advisor": 35.27,
+      "critic": 5.69
+    },
+    "agent_tokens": {
+      "market_analyst": 1731,
+      "salary_estimator": 2443,
+      "career_advisor": 8982,
+      "critic": 7218
+    },
+    "tokens": {
+      "input_tokens": 12897,
+      "output_tokens": 7820,
+      "total_tokens": 20717,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T19:27:45.408317+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.12,
+    "agent_timings_sec": {
+      "market_analyst": 7.15,
+      "salary_estimator": 10.43,
+      "career_advisor": 33.96,
+      "critic": 4.58
+    },
+    "agent_tokens": {
+      "market_analyst": 1768,
+      "salary_estimator": 2371,
+      "career_advisor": 7307,
+      "critic": 6438
+    },
+    "tokens": {
+      "input_tokens": 11040,
+      "output_tokens": 7187,
+      "total_tokens": 18227,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-03-31T19:29:53.969395+00:00",
+    "success": true,
+    "total_elapsed_sec": 53.33,
+    "agent_timings_sec": {
+      "market_analyst": 6.73,
+      "salary_estimator": 8.13,
+      "career_advisor": 30.7,
+      "critic": 7.77
+    },
+    "agent_tokens": {
+      "market_analyst": 1750,
+      "salary_estimator": 2385,
+      "career_advisor": 7046,
+      "critic": 6477
+    },
+    "tokens": {
+      "input_tokens": 10937,
+      "output_tokens": 7064,
+      "total_tokens": 18001,
+      "calls": 5
+    },
+    "quality_score": 90,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T19:33:20.032466+00:00",
+    "success": true,
+    "total_elapsed_sec": 64.44,
+    "agent_timings_sec": {
+      "market_analyst": 6.17,
+      "salary_estimator": 11.4,
+      "career_advisor": 41.25,
+      "critic": 5.62
+    },
+    "agent_tokens": {
+      "market_analyst": 1892,
+      "salary_estimator": 2401,
+      "career_advisor": 8488,
+      "critic": 7637
+    },
+    "tokens": {
+      "input_tokens": 12122,
+      "output_tokens": 8637,
+      "total_tokens": 20759,
+      "calls": 5
+    },
+    "quality_score": 86,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T19:36:44.853682+00:00",
+    "success": true,
+    "total_elapsed_sec": 61.56,
+    "agent_timings_sec": {
+      "market_analyst": 8.14,
+      "salary_estimator": 12.17,
+      "career_advisor": 33.62,
+      "critic": 7.63
+    },
+    "agent_tokens": {
+      "market_analyst": 1922,
+      "salary_estimator": 2348,
+      "career_advisor": 7528,
+      "critic": 6605
+    },
+    "tokens": {
+      "input_tokens": 11219,
+      "output_tokens": 7525,
+      "total_tokens": 18744,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T19:43:05.203774+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.82,
+    "agent_timings_sec": {
+      "market_analyst": 7.21,
+      "salary_estimator": 10.97,
+      "career_advisor": 31.39,
+      "critic": 7.25
+    },
+    "agent_tokens": {
+      "market_analyst": 1845,
+      "salary_estimator": 2378,
+      "career_advisor": 7561,
+      "critic": 6714
+    },
+    "tokens": {
+      "input_tokens": 11301,
+      "output_tokens": 7538,
+      "total_tokens": 18839,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T19:46:18.508477+00:00",
+    "success": true,
+    "total_elapsed_sec": 68.47,
+    "agent_timings_sec": {
+      "market_analyst": 8.81,
+      "salary_estimator": 12.81,
+      "career_advisor": 37.76,
+      "critic": 9.09
+    },
+    "agent_tokens": {
+      "market_analyst": 2090,
+      "salary_estimator": 2082,
+      "career_advisor": 7822,
+      "critic": 6875
+    },
+    "tokens": {
+      "input_tokens": 11269,
+      "output_tokens": 7941,
+      "total_tokens": 19210,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-03-31T19:50:59.338263+00:00",
+    "success": true,
+    "total_elapsed_sec": 61.89,
+    "agent_timings_sec": {
+      "market_analyst": 10.92,
+      "salary_estimator": 11.67,
+      "career_advisor": 32.57,
+      "critic": 6.73
+    },
+    "agent_tokens": {
+      "market_analyst": 2142,
+      "salary_estimator": 2084,
+      "career_advisor": 7570,
+      "critic": 6864
+    },
+    "tokens": {
+      "input_tokens": 11204,
+      "output_tokens": 7797,
+      "total_tokens": 19001,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-04-01T06:33:53.404756+00:00",
+    "success": true,
+    "total_elapsed_sec": 73.45,
+    "agent_timings_sec": {
+      "market_analyst": 12.76,
+      "salary_estimator": 12.58,
+      "career_advisor": 41.22,
+      "critic": 6.89
+    },
+    "agent_tokens": {
+      "market_analyst": 1829,
+      "salary_estimator": 2409,
+      "career_advisor": 7979,
+      "critic": 7307
+    },
+    "tokens": {
+      "input_tokens": 11923,
+      "output_tokens": 7942,
+      "total_tokens": 19865,
+      "calls": 5
+    },
+    "quality_score": 96,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-04-01T06:42:01.555229+00:00",
+    "success": true,
+    "total_elapsed_sec": 70.31,
+    "agent_timings_sec": {
+      "market_analyst": 7.11,
+      "salary_estimator": 13.83,
+      "career_advisor": 36.95,
+      "critic": 12.42
+    },
+    "agent_tokens": {
+      "market_analyst": 1752,
+      "salary_estimator": 2440,
+      "career_advisor": 7544,
+      "critic": 6726
+    },
+    "tokens": {
+      "input_tokens": 11285,
+      "output_tokens": 7520,
+      "total_tokens": 18805,
+      "calls": 5
+    },
+    "quality_score": 23,
+    "is_consistent": false
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-04-01T06:48:09.032129+00:00",
+    "success": true,
+    "total_elapsed_sec": 61.52,
+    "agent_timings_sec": {
+      "market_analyst": 8.35,
+      "salary_estimator": 14.77,
+      "career_advisor": 32.37,
+      "critic": 6.03
+    },
+    "agent_tokens": {
+      "market_analyst": 1772,
+      "salary_estimator": 2414,
+      "career_advisor": 7260,
+      "critic": 6377
+    },
+    "tokens": {
+      "input_tokens": 11050,
+      "output_tokens": 7116,
+      "total_tokens": 18166,
+      "calls": 5
+    },
+    "quality_score": 95,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T06:50:51.858028+00:00",
+    "success": true,
+    "total_elapsed_sec": 72.13,
+    "agent_timings_sec": {
+      "market_analyst": 7.65,
+      "salary_estimator": 23.48,
+      "career_advisor": 30.44,
+      "critic": 10.56
+    },
+    "agent_tokens": {
+      "market_analyst": 1927,
+      "salary_estimator": 2325,
+      "career_advisor": 6964,
+      "critic": 6514
+    },
+    "tokens": {
+      "input_tokens": 10774,
+      "output_tokens": 7296,
+      "total_tokens": 18070,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T10:24:42.379628+00:00",
+    "success": true,
+    "total_elapsed_sec": 61.84,
+    "agent_timings_sec": {
+      "market_analyst": 7.72,
+      "salary_estimator": 9.55,
+      "career_advisor": 35.68,
+      "critic": 8.89
+    },
+    "agent_tokens": {
+      "market_analyst": 1888,
+      "salary_estimator": 2297,
+      "career_advisor": 7757,
+      "critic": 6906
+    },
+    "tokens": {
+      "input_tokens": 11451,
+      "output_tokens": 7737,
+      "total_tokens": 19188,
+      "calls": 5
+    },
+    "quality_score": 91,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T10:28:21.173611+00:00",
+    "success": true,
+    "total_elapsed_sec": 68.14,
+    "agent_timings_sec": {
+      "market_analyst": 7.11,
+      "salary_estimator": 11.27,
+      "career_advisor": 35.65,
+      "critic": 14.11
+    },
+    "agent_tokens": {
+      "market_analyst": 1867,
+      "salary_estimator": 2317,
+      "career_advisor": 8058,
+      "critic": 7176
+    },
+    "tokens": {
+      "input_tokens": 11779,
+      "output_tokens": 7979,
+      "total_tokens": 19758,
+      "calls": 5
+    },
+    "quality_score": 94,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T10:33:18.807853+00:00",
+    "success": true,
+    "total_elapsed_sec": 64.12,
+    "agent_timings_sec": {
+      "market_analyst": 7.5,
+      "salary_estimator": 8.56,
+      "career_advisor": 38.59,
+      "critic": 9.47
+    },
+    "agent_tokens": {
+      "market_analyst": 1902,
+      "salary_estimator": 2312,
+      "career_advisor": 8440,
+      "critic": 7482
+    },
+    "tokens": {
+      "input_tokens": 12089,
+      "output_tokens": 8387,
+      "total_tokens": 20476,
+      "calls": 5
+    },
+    "quality_score": 87,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T10:38:30.625023+00:00",
+    "success": true,
+    "total_elapsed_sec": 67.68,
+    "agent_timings_sec": {
+      "market_analyst": 8.11,
+      "salary_estimator": 8.88,
+      "career_advisor": 40.19,
+      "critic": 10.5
+    },
+    "agent_tokens": {
+      "market_analyst": 1954,
+      "salary_estimator": 2363,
+      "career_advisor": 9210,
+      "critic": 8349
+    },
+    "tokens": {
+      "input_tokens": 13014,
+      "output_tokens": 9202,
+      "total_tokens": 22216,
+      "calls": 5
+    },
+    "quality_score": 92,
+    "is_consistent": true
+  },
+  {
+    "role": "ML Engineer",
+    "generated_at": "2026-04-01T10:46:03.417357+00:00",
+    "success": true,
+    "total_elapsed_sec": 56.27,
+    "agent_timings_sec": {
+      "market_analyst": 7.62,
+      "salary_estimator": 9.58,
+      "career_advisor": 32.23,
+      "critic": 6.84
+    },
+    "agent_tokens": {
+      "market_analyst": 1883,
+      "salary_estimator": 2318,
+      "career_advisor": 7703,
+      "critic": 6521
+    },
+    "tokens": {
+      "input_tokens": 11471,
+      "output_tokens": 7294,
+      "total_tokens": 18765,
+      "calls": 5
+    },
+    "quality_score": 95,
+    "is_consistent": true
+  },
+  {
+    "role": "IOS Developer (Swift)",
+    "generated_at": "2026-04-01T10:49:57.761501+00:00",
+    "success": true,
+    "total_elapsed_sec": 59.75,
+    "agent_timings_sec": {
+      "market_analyst": 7.35,
+      "salary_estimator": 9.35,
+      "career_advisor": 35.86,
+      "critic": 7.19
+    },
+    "agent_tokens": {
+      "market_analyst": 1778,
+      "salary_estimator": 2412,
+      "career_advisor": 8027,
+      "critic": 6795
+    },
+    "tokens": {
+      "input_tokens": 11735,
+      "output_tokens": 7620,
+      "total_tokens": 19355,
+      "calls": 5
+    },
+    "quality_score": 93,
+    "is_consistent": true
+  },
+  {
+    "role": "Backend Python Developer",
+    "generated_at": "2026-04-01T10:52:31.113210+00:00",
+    "success": true,
+    "total_elapsed_sec": 66.03,
+    "agent_timings_sec": {
+      "market_analyst": 8.99,
+      "salary_estimator": 14.04,
+      "career_advisor": 35.34,
+      "critic": 7.66
+    },
+    "agent_tokens": {
+      "market_analyst": 2133,
+      "salary_estimator": 2455,
+      "career_advisor": 8245,
+      "critic": 7003
+    },
+    "tokens": {
+      "input_tokens": 12140,
+      "output_tokens": 8037,
+      "total_tokens": 20177,
+      "calls": 5
+    },
+    "quality_score": 95,
+    "is_consistent": true
   }
 ]

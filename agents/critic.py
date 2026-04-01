@@ -7,52 +7,58 @@ from core.models import CriticResult
 logger = logging.getLogger(__name__)
 
 SYSTEM_PROMPT = BaseAgent.BASE_SYSTEM + """
-Ты — строгий ревьюер карьерных отчётов. Твоя задача — найти проблемы, а не похвалить.
-25/25 = идеально (редкость). 20-24 = норма. Оценка 95+ подозрительна.
- 
-REASON формула: ТОЛЬКО проблемы + минус N баллов. Если проблем нет — пиши "норма".
-ЗАПРЕЩЕНО перечислять что правильно. Каждое предложение в reason должно содержать "минус" или "норма".
-ВАЖНО: если reason = "норма" — score обязан быть 25. Нельзя писать "норма" и ставить 24.
-Снижаешь балл — обязан написать конкретную причину с "минус N баллов".
-Пиши ТОЛЬКО о проблемах. Если всё хорошо — одно слово "норма". Не перечисляй что правильно.
-Плохо: "Junior Москва 80-150k — корректно. Middle 100-220k — норма. Lead remote max 9000 USD завышен — минус 1 балл"
-Хорошо: "Lead remote max 9000 USD завышен для рынка 2026 — минус 1 балл"
- 
-КРИТЕРИИ (каждый 0-25, итого 100):
- 
-1. salary_market_match (0-25): Junior min < 80? Remote max завышен? Регионы не 60-70%? Грейды пересекаются? Только нарушения.
+Ты — строгий ревьюер карьерных отчётов. Задача — найти проблемы, не хвалить.
+25/25 = идеально (редкость). 20-24 = норма. 95+ подозрительна.
 
-2. skills_consistency (0-25): Меньше 3 языков? Declining = critical? soft_skills не межличностные? trend_reason без факта? Только нарушения.
+REASON: ТОЛЬКО проблемы + "минус N баллов". Нет проблем → "норма".
+"норма" = строго 25. Снижаешь — обязан указать причину.
 
-3. learning_path_quality (0-25): duration_days не сходится? Path содержит "понимаешь/изучаешь"? Topics содержат soft skills? Milestone не "Могу..."? Gap без деталей? Сроки quick_wins нереалистичны для указанного уровня пользователя? Только нарушения.
-ВАЖНО: если пользователь уже знает язык или смежный стек — не штрафуй за короткие сроки на базовые темы.
+Тебе передаётся skill_level. Все проверки сложности — относительно него.
 
-4. portfolio_relevance (0-25): Название абстрактное? Problem не боль? user_stories не "делаю→вижу"? Пустые поля? Только нарушения.
- 
-WARNINGS: только реальные проблемы, максимум 3-5. Одно предложение без конкретных дней.
-Плохо: "SwiftUI основы — 1-2 недели слишком оптимистично, реальный срок 2-3 недели"
-Хорошо: "Gap-анализ: quick_wins содержат нереалистичные сроки для новичка, предложи реалистичные по твоему мнению и среднему"
-Не добавляй в warnings: отсутствие GitHub ссылок, метрики покрытия навыков, детали тестов — это не критичные проблемы.
- 
+КРИТЕРИИ (каждый 0-25):
+
+1. salary_market_match: Junior min < 80? Remote max завышен? Регионы не 60-70%? Грейды пересекаются?
+
+2. skills_consistency: < 3 языков? Declining = critical? soft_skills не межличностные? trend_reason без факта?
+
+3. learning_path_quality:
+
+   ПОТОЛОК СЛОЖНОСТИ (главное):
+   Тест для каждой темы: "Может ли человек с данным skill_level освоить ЭТО за неделю?" Нет → слишком сложно.
+   Продвинутый инструмент = свой lifecycle + >1 недели на освоение.
+
+   Новичок (пустой / < 1 года):
+   - Foundation содержит не только язык и простое хранение → минус 3-5. Фреймворк в Foundation = ошибка (кроме мобилки где без UI-фреймворка нельзя ничего).
+   - Practice: больше 1 крупной концепции сверх фреймворка и тестов → минус 2-3.
+   - Portfolio вводит новые технологии → минус 2-3.
+   - Больше 5 технологий за курс → минус 2.
+
+   Опытный (1+ год): фреймворк в Foundation ОК. Practice > 2 крупных → минус 2. Не штрафуй за известное.
+
+   PATH: "понимаешь/изучаешь/применяешь" → минус 1-2. Шаг с >1 концепцией → минус 1.
+   СТРУКТУРА: duration != 30, topics с soft skills, milestone без "Могу", projects != 3, resources < 2 → минус 1-2 каждое.
+   GAP: нереалистичные сроки для skill_level → минус 1-2. long_term не по порядку → минус 1.
+
+4. portfolio_relevance: Абстрактное название? Problem не боль? user_stories не "делаю→вижу"? Нереализуем за 30 дней? Продвинутые инструменты для новичка?
+
+WARNINGS: макс 3-5, по одному предложению. Приоритет: сложность vs уровень > сроки > структура.
+
 is_consistent: false если score < 60.
- 
-Структура:
+
 {
   "critic_result": {
     "score_breakdown": {
-      "salary_market_match": {"score": 22, "reason": "..."},
-      "skills_consistency": {"score": 23, "reason": "..."},
-      "learning_path_quality": {"score": 19, "reason": "..."},
-      "portfolio_relevance": {"score": 21, "reason": "..."}
+      "salary_market_match": {"score": 0, "reason": "..."},
+      "skills_consistency": {"score": 0, "reason": "..."},
+      "learning_path_quality": {"score": 0, "reason": "..."},
+      "portfolio_relevance": {"score": 0, "reason": "..."}
     },
-    "quality_score": 85,
-    "quality_score_reason": "...",
+    "quality_score": 0,
+    "quality_score_reason": "Только проблемы. Макс 2 предложения.",
     "warnings": ["..."],
     "is_consistent": true
   }
 }
-
-JSON должен содержать все поля: score_breakdown, quality_score, quality_score_reason: только главные проблемы через запятую. Без похвалы. Максимум 2 предложения., warnings (список строк), is_consistent (bool)
 """
 
 
@@ -131,6 +137,16 @@ class CriticAgent(BaseAgent):
         Верни ТОЛЬКО JSON. JSON должен содержать все поля: score_breakdown, quality_score, quality_score_reason: только главные проблемы через запятую. Без похвалы. Максимум 2 предложения., warnings (список строк, максимум 5), is_consistent (bool)."""
 
         raw = self.llm.ask_json(SYSTEM_PROMPT, user_prompt)
-        critic_result = CriticResult(**raw["critic_result"])
+        critic_data = raw["critic_result"]
+
+        # Пересчитываем quality_score из breakdown
+        breakdown = critic_data.get("score_breakdown", {})
+        computed_score = sum(
+            v["score"] for v in breakdown.values() if isinstance(v, dict) and "score" in v
+        )
+        critic_data["quality_score"] = computed_score
+        critic_data["is_consistent"] = computed_score >= 60
+
+        critic_result = CriticResult(**critic_data)
         logger.info("quality_score=%d, is_consistent=%s", critic_result.quality_score, critic_result.is_consistent)
         return {"critic_result": critic_result.model_dump(mode="json")}
